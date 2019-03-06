@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:s1="http://general_computing.com/paymentgw/types" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:element name="paymentgw_version">
+        <s:complexType />
+      </s:element>
+      <s:element name="paymentgw_versionResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="paymentgw_versionResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="authorizationRequestxml">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="xml" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="authorizationRequestxmlResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="authorizationRequestxmlResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://general_computing.com/paymentgw/types">
+      <s:element name="AuthorizationRequest">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="AuthorizationRequest" type="s1:Request" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="Request">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="posEntryMode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="pan" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="expdate" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="amount" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="track2Data" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="cvv2" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="paymentgwIP" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="shopperIP" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="merchantServerIP" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="merchantUser" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="merchantPasswd" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="terminalId" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="merchant" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="messageType" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="auditNumber" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="additionalData" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="response" type="s1:Response" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Response">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="auditNumber" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="referenceNumber" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="authorizationNumber" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="responseCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="messageType" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="signature" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="AuthorizationResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="response" type="s1:Response" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="paymentgw_versionSoapIn">
+    <wsdl:part name="parameters" element="tns:paymentgw_version" />
+  </wsdl:message>
+  <wsdl:message name="paymentgw_versionSoapOut">
+    <wsdl:part name="parameters" element="tns:paymentgw_versionResponse" />
+  </wsdl:message>
+  <wsdl:message name="AuthorizationRequestSoapIn">
+    <wsdl:part name="authorizationRequest1" element="s1:AuthorizationRequest" />
+  </wsdl:message>
+  <wsdl:message name="AuthorizationRequestSoapOut">
+    <wsdl:part name="AuthorizationRequestResult" element="s1:AuthorizationResponse" />
+  </wsdl:message>
+  <wsdl:message name="authorizationRequestxmlSoapIn">
+    <wsdl:part name="parameters" element="tns:authorizationRequestxml" />
+  </wsdl:message>
+  <wsdl:message name="authorizationRequestxmlSoapOut">
+    <wsdl:part name="parameters" element="tns:authorizationRequestxmlResponse" />
+  </wsdl:message>
+  <wsdl:portType name="PaymentGWServicesSoap">
+    <wsdl:operation name="paymentgw_version">
+      <wsdl:input message="tns:paymentgw_versionSoapIn" />
+      <wsdl:output message="tns:paymentgw_versionSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AuthorizationRequest">
+      <wsdl:input message="tns:AuthorizationRequestSoapIn" />
+      <wsdl:output message="tns:AuthorizationRequestSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="authorizationRequestxml">
+      <wsdl:input message="tns:authorizationRequestxmlSoapIn" />
+      <wsdl:output message="tns:authorizationRequestxmlSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="PaymentGWServicesSoap" type="tns:PaymentGWServicesSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="paymentgw_version">
+      <soap:operation soapAction="http://tempuri.org/paymentgw_version" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AuthorizationRequest">
+      <soap:operation soapAction="" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="authorizationRequestxml">
+      <soap:operation soapAction="http://tempuri.org/authorizationRequestxml" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="PaymentGWServicesSoap12" type="tns:PaymentGWServicesSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="paymentgw_version">
+      <soap12:operation soapAction="http://tempuri.org/paymentgw_version" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AuthorizationRequest">
+      <soap12:operation soapAction="" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="authorizationRequestxml">
+      <soap12:operation soapAction="http://tempuri.org/authorizationRequestxml" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="PaymentGWServices">
+    <wsdl:port name="PaymentGWServicesSoap" binding="tns:PaymentGWServicesSoap">
+      <soap:address location="https://epaytestvisanet.com.gt/paymentcommerce.asmx" />
+    </wsdl:port>
+    <wsdl:port name="PaymentGWServicesSoap12" binding="tns:PaymentGWServicesSoap12">
+      <soap12:address location="https://epaytestvisanet.com.gt/paymentcommerce.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
