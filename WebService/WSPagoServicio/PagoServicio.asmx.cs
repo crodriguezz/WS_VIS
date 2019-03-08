@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.Script.Services;
 using System.Web.Services;
 using WSPagoServicio.Clases;
+using WSPagoServicio.MQ;
 
 namespace WSPagoServicio
 {   
@@ -26,6 +27,10 @@ namespace WSPagoServicio
         [System.Web.Services.Protocols.SoapHeader("SoapHeader")]
         public string AutenticarUsuario()
         {
+
+            Metodos me = new Metodos();
+            me.PutMessages();
+
             if (SoapHeader == null)
                 return "Ingrese Usuario y Contraseña";
             if (string.IsNullOrEmpty(SoapHeader.Usuario) || string.IsNullOrEmpty(SoapHeader.Password))
@@ -52,7 +57,6 @@ namespace WSPagoServicio
 
         [WebMethod]
         [System.Web.Services.Protocols.SoapHeader("SoapHeader")]
-        [ScriptMethod(ResponseFormat = ResponseFormat.Json)]//Specify return format.
         public string PagoEnLinea(DatosPago datos)
         {
             if (SoapHeader == null)
@@ -112,7 +116,6 @@ namespace WSPagoServicio
 
         [WebMethod]
         [System.Web.Services.Protocols.SoapHeader("SoapHeader")]
-        [ScriptMethod(ResponseFormat = ResponseFormat.Json)]//Specify return format.
         public string ConsultaSaldo(DatosConsulta datos)
         {
 

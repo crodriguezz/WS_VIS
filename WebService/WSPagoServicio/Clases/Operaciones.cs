@@ -7,24 +7,18 @@ namespace WSPagoServicio.Clases
 {
     public class Operaciones
     {
-        /// <summary>
-        /// PERMITE REALIZAR CONSULTA
-        /// </summary>
-        /// <param name="nis"></param>
-        /// <param name="empresa"></param>
-        /// <param name="cod_banco"></param>
-        /// <returns></returns>
         public string RealizarConsulta(DatosConsulta datos)
         {
-            string trama = CrearTramaConsulta(datos);           
+            string trama = CrearTramaConsulta(datos);
+            //string trama_cola = EnviaraCola();
+            InterpretarTramaConsulta(trama, datos.BANCO, "549");
             return trama;
         }
-
         private string CrearTramaConsulta(DatosConsulta datos)
         {
             OracleClass oracle = new OracleClass();
             Utilidad utilidad = new Utilidad();
-            List<ParametrosConsulta> parametros = oracle.GetParametros(datos.BANCO,datos.OPERACION);
+            List<ParametrosConsulta> parametros = oracle.GetParametros(datos.BANCO,datos.TIP_OPER);
             string trama = string.Empty;
 
             int inicio_trama = oracle.InicioTrama(datos.BANCO);
@@ -43,20 +37,32 @@ namespace WSPagoServicio.Clases
 
             return trama;
         }
+        private void InterpretarTramaConsulta(string trama, string banco, string operacion)
+        {
+            OracleClass oracle = new OracleClass();
+            Utilidad utilidad = new Utilidad();
+            List<ParametrosConsulta> parametros = oracle.GetParametros(banco, operacion);
+            DatosRespuestaConsulta datos = utilidad.TipoRespuestaConsulta(parametros,trama);
+
+        }
+
+
 
         public string RealizarPago(DatosPago datos)
         {
             string trama = CrearTramaPago(datos);
+            RealizarReversion(datos);
+            InterpretarTramaPago(trama, datos.MQ_BANCO, "553");
             return trama;
         }
         private string CrearTramaPago(DatosPago datos)
         {
             OracleClass oracle = new OracleClass();
             Utilidad utilidad = new Utilidad();
-            List<ParametrosConsulta> parametros = oracle.GetParametros(datos.BANCO, datos.OPERACION);
+            List<ParametrosConsulta> parametros = oracle.GetParametros(datos.MQ_BANCO, datos.TIP_OPER);
             string trama = string.Empty;
 
-            int inicio_trama = oracle.InicioTrama(datos.BANCO);
+            int inicio_trama = oracle.InicioTrama(datos.MQ_BANCO);
             if (inicio_trama == -1)
             {
                 inicio_trama = 0;
@@ -71,22 +77,52 @@ namespace WSPagoServicio.Clases
             }
 
             return trama;
+        }
+        private void InterpretarTramaPago(string trama, string banco, string operacion)
+        {
+            OracleClass oracle = new OracleClass();
+            Utilidad utilidad = new Utilidad();
+            List<ParametrosConsulta> parametros = oracle.GetParametros(banco, operacion);
+            DatosRespuestaPago datos = utilidad.TipoRespuestaPago(parametros, trama);
+
+
         }
 
 
         public string RealizarReversion(DatosPago datos)
         {
-            string trama = CrearTramaReversion(datos);
+            DatosReversion rev = new DatosReversion
+            {
+                TIP_OPER = "554",
+                MONTO = datos.MONTO,
+                AGENCIA = datos.AGENCIA,
+                MQ_BANCO = datos.MQ_BANCO,
+                CAJERO = datos.CAJERO,
+                CHEQUES_BI = datos.CHEQUES_BI,
+                CODIGO_BANCO = datos.CODIGO_BANCO,
+                CVV2 = datos.CVV2,
+                EFECTIVO = datos.EFECTIVO,
+                EMPRESA = datos.EMPRESA,
+                FECHA_EXPIRACION = datos.FECHA_EXPIRACION,
+                HORA_REV = DateTime.Now.ToString("HHmmss"),
+                FECHA_REV = DateTime.Now.ToString("yyyyMMdd"),
+                NIS_NIR = datos.NIS_NIR,
+                NO_CHEQUE = datos.NO_CHEQUE,
+                TARJETA = datos.TARJETA,
+                TIPO_PAGO = datos.TIPO_PAGO,
+                TOTAL_OPER = datos.TOTAL_OPER
+            };
+            string trama = CrearTramaReversion(rev);           
             return trama;
         }
-        private string CrearTramaReversion(DatosPago datos)
+        private string CrearTramaReversion(DatosReversion datos)
         {
             OracleClass oracle = new OracleClass();
             Utilidad utilidad = new Utilidad();
-            List<ParametrosConsulta> parametros = oracle.GetParametros(datos.BANCO, datos.OPERACION);
+            List<ParametrosConsulta> parametros = oracle.GetParametros(datos.MQ_BANCO, datos.TIP_OPER);
             string trama = string.Empty;
 
-            int inicio_trama = oracle.InicioTrama(datos.BANCO);
+            int inicio_trama = oracle.InicioTrama(datos.MQ_BANCO);
             if (inicio_trama == -1)
             {
                 inicio_trama = 0;
@@ -97,10 +133,19 @@ namespace WSPagoServicio.Clases
             }
             for (int i = 0; i < parametros.Count; i++)
             {
-                trama += utilidad.TipoDatoPago(parametros[i], datos);
+                trama += utilidad.TipoDatoReversion(parametros[i], datos);
             }
 
             return trama;
+        }
+        private void InterpretarTramaReversion(string trama, string banco, string operacion)
+        {
+            OracleClass oracle = new OracleClass();
+            Utilidad utilidad = new Utilidad();
+            List<ParametrosConsulta> parametros = oracle.GetParametros(banco, operacion);
+            DatosRespuestaReversion datos = utilidad.TipoRespuestaReversion(parametros, trama);
+
+
         }
     }
 }

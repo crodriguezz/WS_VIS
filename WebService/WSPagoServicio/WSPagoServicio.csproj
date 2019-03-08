@@ -43,6 +43,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="amqmdnet">
+      <HintPath>..\amqmdnet.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="Oracle.ManagedDataAccess, Version=4.122.18.3, Culture=neutral, PublicKeyToken=89b483f429c47342, processorArchitecture=MSIL">
       <HintPath>..\packages\Oracle.ManagedDataAccess.18.3.0\lib\net40\Oracle.ManagedDataAccess.dll</HintPath>
@@ -88,10 +91,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Clases\AutenticarUsuario.cs" />
-    <Compile Include="Clases\DatosConsulta.cs" />
+    <Compile Include="Clases\ParametrosConsulta.cs" />
     <Compile Include="Clases\Operaciones.cs" />
     <Compile Include="Clases\OracleClass.cs" />
     <Compile Include="Clases\Utilidad.cs" />
+    <Compile Include="MQ\Metodos.cs" />
     <Compile Include="PagoServicio.asmx.cs">
       <DependentUpon>PagoServicio.asmx</DependentUpon>
       <SubType>Component</SubType>
