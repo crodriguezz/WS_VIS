@@ -46,7 +46,7 @@ namespace WSPagoServicio.Clases
     public class DatosRespuestaConsulta
     {
         //MQ
-        public string TIP_OPER  { get; set; }
+        public string TIP_OPER { get; set; }
         public string NIS { get; set; }
         public string NOM_TIT_CONT { get; set; }
         public string DIR_SUMINISTRO { get; set; }
@@ -172,4 +172,9 @@ namespace WSPagoServicio.Clases
 
     }
 
+    public class Respuesta
+    {
+        int Codigo { get; set; }
+        string Mensaje { get; set; }
+    }
 }

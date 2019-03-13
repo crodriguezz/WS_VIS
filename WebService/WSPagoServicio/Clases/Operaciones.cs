@@ -10,8 +10,6 @@ namespace WSPagoServicio.Clases
         public string RealizarConsulta(DatosConsulta datos)
         {
             string trama = CrearTramaConsulta(datos);
-            //string trama_cola = EnviaraCola();
-            InterpretarTramaConsulta(trama, datos.BANCO, "549");
             return trama;
         }
         private string CrearTramaConsulta(DatosConsulta datos)
@@ -37,13 +35,22 @@ namespace WSPagoServicio.Clases
 
             return trama;
         }
-        private void InterpretarTramaConsulta(string trama, string banco, string operacion)
+        public DatosRespuestaConsulta InterpretarTramaConsulta(string trama, string banco, string operacion)
         {
             OracleClass oracle = new OracleClass();
             Utilidad utilidad = new Utilidad();
+            int inicio_trama = oracle.InicioTrama(banco);
+            if (inicio_trama == -1)
+            {
+                inicio_trama = 0;
+            }
+            else
+            {
+                trama = trama.Substring(inicio_trama);
+            }
             List<ParametrosConsulta> parametros = oracle.GetParametros(banco, operacion);
             DatosRespuestaConsulta datos = utilidad.TipoRespuestaConsulta(parametros,trama);
-
+            return datos;
         }
 
 

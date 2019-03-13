@@ -43,42 +43,42 @@ namespace WSPagoServicio.Clases
                         valor = trama.Substring(0, Int32.Parse(tipo[i].LONGITUD));
                         trama = trama.Substring(Int32.Parse(tipo[i].LONGITUD));
                         dato.STATUS = valor;
-                        return dato;
+                        break;
                     case "NOM_TIT_CONT":
                         valor = trama.Substring(0, Int32.Parse(tipo[i].LONGITUD));
                         trama = trama.Substring(Int32.Parse(tipo[i].LONGITUD));
                         dato.NOM_TIT_CONT = valor;
-                        return dato;
+                        break;
                     case "DIR_SUMINISTRO":
                         valor = trama.Substring(0, Int32.Parse(tipo[i].LONGITUD));
                         trama = trama.Substring(Int32.Parse(tipo[i].LONGITUD));
                         dato.DIR_SUMINISTRO = valor;
-                        return dato;
+                        break;
                     case "USUARIO":
                         valor = trama.Substring(0, Int32.Parse(tipo[i].LONGITUD));
                         trama = trama.Substring(Int32.Parse(tipo[i].LONGITUD));
                         dato.USUARIO = valor;
-                        return dato;
+                        break;
                     case "ESTACION":
                         valor = trama.Substring(0, Int32.Parse(tipo[i].LONGITUD));
                         trama = trama.Substring(Int32.Parse(tipo[i].LONGITUD));
                         dato.ESTACION = valor;
-                        return dato;
+                        break;
                     case "DEUDA":
                         valor = trama.Substring(0, Int32.Parse(tipo[i].LONGITUD));
                         trama = trama.Substring(Int32.Parse(tipo[i].LONGITUD));
                         dato.DEUDA = valor;
-                        return dato;
+                        break;
                     case "NIS":
                         valor = trama.Substring(0, Int32.Parse(tipo[i].LONGITUD));
                         trama = trama.Substring(Int32.Parse(tipo[i].LONGITUD));
                         dato.NIS = valor;
-                        return dato;
+                        break;
                     case "TIP_OPER":
                         valor = trama.Substring(0, Int32.Parse(tipo[i].LONGITUD));
                         trama = trama.Substring(Int32.Parse(tipo[i].LONGITUD));
                         dato.TIP_OPER = valor;
-                        return dato;
+                        break;
                 }
             }
 
@@ -138,17 +138,17 @@ namespace WSPagoServicio.Clases
                         valor = trama.Substring(0, Int32.Parse(tipo[i].LONGITUD));
                         trama = trama.Substring(Int32.Parse(tipo[i].LONGITUD));
                         dato.TIP_OPER = valor;
-                        return dato;
+                        break;
                     case "NOM_TIT_CONT":
                         valor = trama.Substring(0, Int32.Parse(tipo[i].LONGITUD));
                         trama = trama.Substring(Int32.Parse(tipo[i].LONGITUD));
                         dato.NOM_TIT_CONT = valor;
-                        return dato;
+                        break;
                     case "STATUS":
                         valor = trama.Substring(0, Int32.Parse(tipo[i].LONGITUD));
                         trama = trama.Substring(Int32.Parse(tipo[i].LONGITUD));
                         dato.STATUS = valor;
-                        return dato;
+                        break;
                 }
             }
 
@@ -212,12 +212,12 @@ namespace WSPagoServicio.Clases
                         valor = trama.Substring(0, Int32.Parse(tipo[i].LONGITUD));
                         trama = trama.Substring(Int32.Parse(tipo[i].LONGITUD));
                         dato.TIP_OPER = valor;
-                        return dato;
+                        break;
                     case "STATUS":
                         valor = trama.Substring(0, Int32.Parse(tipo[i].LONGITUD));
                         trama = trama.Substring(Int32.Parse(tipo[i].LONGITUD));
                         dato.STATUS = valor;
-                        return dato;
+                        break;
                 }
             }
 
@@ -239,7 +239,7 @@ namespace WSPagoServicio.Clases
                     data += " ";
                 }
                 valor += data;
-                return data;
+                return valor;
             }
         }
 

@@ -70,6 +70,42 @@ namespace WSPagoServicio.Properties {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a SYSTEM.ADMIN.SVRCONN.
+        /// </summary>
+        internal static string channelName {
+            get {
+                return ResourceManager.GetString("channelName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a 10.240.66.8.
+        /// </summary>
+        internal static string hostName {
+            get {
+                return ResourceManager.GetString("hostName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a 1.
+        /// </summary>
+        internal static string numberOfMsgs {
+            get {
+                return ResourceManager.GetString("numberOfMsgs", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a 1414.
+        /// </summary>
+        internal static string port {
+            get {
+                return ResourceManager.GetString("port", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a SELECT * FROM MQPRO.MQ_FORMATOS_DETALLE WHERE CODIGO_MQ_BANCO = .
         /// </summary>
         internal static string query_banco_detalle {
@@ -93,6 +129,33 @@ namespace WSPagoServicio.Properties {
         internal static string query_banco_ini {
             get {
                 return ResourceManager.GetString("query_banco_ini", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a QM_ENERGUATE_RECEP.
+        /// </summary>
+        internal static string queueManagerName {
+            get {
+                return ResourceManager.GetString("queueManagerName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a QL.ENER.VS.ONLINE.
+        /// </summary>
+        internal static string queueName_Get {
+            get {
+                return ResourceManager.GetString("queueName_Get", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a QL.VS.ENER.ONLINE.
+        /// </summary>
+        internal static string queueName_Put {
+            get {
+                return ResourceManager.GetString("queueName_Put", resourceCulture);
             }
         }
     }

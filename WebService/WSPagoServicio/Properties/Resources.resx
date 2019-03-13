@@ -121,6 +121,22 @@
     <value>5000</value>
     <comment>Valor para Banco en MQPRO</comment>
   </data>
+  <data name="channelName" xml:space="preserve">
+    <value>SYSTEM.ADMIN.SVRCONN</value>
+    <comment>Name of the channel</comment>
+  </data>
+  <data name="hostName" xml:space="preserve">
+    <value>10.240.66.8</value>
+    <comment>Name of the host on which Queue manager is running</comment>
+  </data>
+  <data name="numberOfMsgs" xml:space="preserve">
+    <value>1</value>
+    <comment>Number of messages</comment>
+  </data>
+  <data name="port" xml:space="preserve">
+    <value>1414</value>
+    <comment>Port number on which Queue manager is listening</comment>
+  </data>
   <data name="query_banco_detalle" xml:space="preserve">
     <value>SELECT * FROM MQPRO.MQ_FORMATOS_DETALLE WHERE CODIGO_MQ_BANCO = </value>
     <comment>Valor que determina como esta compuesta la trama</comment>
@@ -132,5 +148,17 @@
   <data name="query_banco_ini" xml:space="preserve">
     <value>select * from MQPRO.MQ_FORMATOS_INI WHERE CODIGO_MQ_BANCO =</value>
     <comment>Valor que determina el inicio de banco</comment>
+  </data>
+  <data name="queueManagerName" xml:space="preserve">
+    <value>QM_ENERGUATE_RECEP</value>
+    <comment>Name of the Queue manager to connect to</comment>
+  </data>
+  <data name="queueName_Get" xml:space="preserve">
+    <value>QL.ENER.VS.ONLINE</value>
+    <comment>Queue name Get</comment>
+  </data>
+  <data name="queueName_Put" xml:space="preserve">
+    <value>QL.VS.ENER.ONLINE</value>
+    <comment>Queue name Put</comment>
   </data>
 </root>

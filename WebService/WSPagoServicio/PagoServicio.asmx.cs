@@ -22,15 +22,10 @@ namespace WSPagoServicio
     {
         internal Operaciones operaciones;
         public SecureTokenWebService SoapHeader;
-
         [WebMethod]
         [System.Web.Services.Protocols.SoapHeader("SoapHeader")]
         public string AutenticarUsuario()
-        {
-
-            Metodos me = new Metodos();
-            me.PutMessages();
-
+        {           
             if (SoapHeader == null)
                 return "Ingrese Usuario y Contraseña";
             if (string.IsNullOrEmpty(SoapHeader.Usuario) || string.IsNullOrEmpty(SoapHeader.Password))
@@ -47,7 +42,7 @@ namespace WSPagoServicio
               SoapHeader.Usuario,
               null,
               System.Web.Caching.Cache.NoAbsoluteExpiration,
-              TimeSpan.FromMinutes(1),
+              TimeSpan.FromMinutes(60),
               System.Web.Caching.CacheItemPriority.NotRemovable, 
               null);
 
@@ -116,18 +111,25 @@ namespace WSPagoServicio
 
         [WebMethod]
         [System.Web.Services.Protocols.SoapHeader("SoapHeader")]
-        public string ConsultaSaldo(DatosConsulta datos)
+        public DatosRespuestaConsulta ConsultaSaldo(DatosConsulta datos)
         {
-
+            DatosRespuestaConsulta respuesta_datos = new DatosRespuestaConsulta();
+            respuesta_datos.TIP_OPER = "400";
+            respuesta_datos.STATUS = "Implementar metodo AutenticarUsuario de primero";
             if (SoapHeader == null)
-                return "Implementar metodo AutenticarUsuario de primero";
+                //return "Implementar metodo AutenticarUsuario de primero";
+                return respuesta_datos;
 
             if (!SoapHeader.UsuarioCorrecto(SoapHeader))
-                return "Implementar metodo AutenticarUsuario de primero";
+                //return "Implementar metodo AutenticarUsuario de primero";
+                return respuesta_datos;
 
             operaciones = new Operaciones();
-            string data = operaciones.RealizarConsulta(datos);
-            return "{ data:" + data + "}";
+            string trama = operaciones.RealizarConsulta(datos);
+            Metodos MQ_metodos = new Metodos();
+            string response = MQ_metodos.PutMessages(trama,datos);
+            respuesta_datos = operaciones.InterpretarTramaConsulta(response,datos.BANCO,"549");
+            return respuesta_datos;
         }
         
 
