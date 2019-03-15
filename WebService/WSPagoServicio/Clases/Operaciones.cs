@@ -28,8 +28,10 @@ namespace WSPagoServicio.Clases
             }
 
             //GET DE TRAMA
-            //BuscarRespuesta(messageID);
-            string get_trama = MQ_metodos.GetMessages();
+            string get_trama= BuscarRespuesta(messageID);
+
+            
+            //string get_trama = MQ_metodos.GetMessages();
             if (get_trama.Length==1)
             {
                 respuesta_datos.TIP_OPER = Properties.Resources.CodErrorConexion;
@@ -86,14 +88,22 @@ namespace WSPagoServicio.Clases
             }
             return respuesta;
         }
+        public string BuscarRespuesta(string mensajeID)
+        {
+            OracleClass oracle = new OracleClass();
 
-        public DatosRespuestaPago RealizarPago(DatosPago datos, RespuestaVisa datos_visa)
+            return oracle.ObtenerRespuesta(mensajeID);
+        }
+
+
+
+        public DatosRespuestaPago RealizarPago(DatosPago datos, RespuestaVisa datos_visa, string messageID_)
         {
             DatosRespuestaPago respuesta_datos = new DatosRespuestaPago();
             string trama = CrearTramaPago(datos);
 
             Metodos MQ_metodos = new Metodos();
-            string messageID = datos.FECHA + datos.HORA + datos_visa.ReferenceNumber;
+            string messageID = messageID_;
             bool response = MQ_metodos.PutMessages(trama, messageID);
 
             if (response == false)
@@ -165,8 +175,13 @@ namespace WSPagoServicio.Clases
                     AuthorizationNumber = respuestaWS.response.authorizationNumber,
                     ResponseCode = respuestaWS.response.responseCode,
                     ReferenceNumber = respuestaWS.response.referenceNumber
-                };                
-                respuesta_datos = RealizarPago(datos, resp_visa);
+                };
+                string messageID = datos.FECHA + datos.HORA + resp_visa.ReferenceNumber;
+                respuesta_datos = RealizarPago(datos, resp_visa,messageID);
+
+                OracleClass oracle = new OracleClass();
+                oracle.RegistrarEvento(datos, resp_visa, "PAGO ENERGUATE", messageID);
+
                 return respuesta_datos;
             }
 

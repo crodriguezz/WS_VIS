@@ -133,61 +133,93 @@ namespace WSPagoServicio
             return longitud;
         }
 
-
-        public bool RegistrarEvento(DatosPago datos, string operacion, string messageID)
+        public bool RegistrarEvento(DatosPago datos, RespuestaVisa datos_visa, string operacion, string messageID)
         {
-            bool status = false;
 
+            var conexion = NuevaConexion();
+            try
+            {
+                OracleCommand comando = new OracleCommand("NEW_VISA_HISTORY", conexion)
+                {
+                    CommandType = CommandType.StoredProcedure,
+                    BindByName = true
+                };
+                DateTime date = System.DateTime.Now;
 
-            //var conexion = NuevaConexion();
-            //DateTime date = System.DateTime.Now;
-            //string sql = Properties.Resources.InsertVisaHistory
-            //    + date.ToString()
-            //    + date.ToString("HH:mm:ss")
-            //    + datos.CODIGO_BANCO
-            //    + datos.TIP_OPER
-            //    + operacion 
-            //    + messageID
-            //    + ")";
+                comando.Parameters.Add("p_fecha", OracleDbType.Date, date, ParameterDirection.Input);
+                comando.Parameters.Add("p_hora", OracleDbType.Varchar2, date.ToString("HH:mm:ss"), ParameterDirection.Input);
+                comando.Parameters.Add("p_nis", OracleDbType.Varchar2, datos.NIS_NIR, ParameterDirection.Input);
+                comando.Parameters.Add("p_tarjeta", OracleDbType.Varchar2, datos.TARJETA, ParameterDirection.Input);
+                comando.Parameters.Add("p_monto", OracleDbType.Varchar2, datos.MONTO, ParameterDirection.Input);
+                comando.Parameters.Add("p_f_exp", OracleDbType.Varchar2, datos.FECHA_EXPIRACION, ParameterDirection.Input);
+                comando.Parameters.Add("p_operacion", OracleDbType.Varchar2, operacion, ParameterDirection.Input);
+                comando.Parameters.Add("p_audit", OracleDbType.Varchar2, datos_visa.AuditNumber, ParameterDirection.Input);
+                comando.Parameters.Add("p_reference", OracleDbType.Varchar2, datos_visa.ReferenceNumber, ParameterDirection.Input);
+                comando.Parameters.Add("p_response", OracleDbType.Varchar2,datos_visa.ResponseCode, ParameterDirection.Input);
+                comando.Parameters.Add("p_message", OracleDbType.Varchar2, datos_visa.MessageType, ParameterDirection.Input);
+                comando.Parameters.Add("p_msg", OracleDbType.Varchar2, messageID, ParameterDirection.Input);
 
-            //try
-            //{
-            //    OracleCommand comando = new OracleCommand(sql, conexion)
-            //    {
-            //        CommandType = System.Data.CommandType.Text
-            //    };
-
-            //    cmd.CommandText = "INSERT INTO Emp (FName, LName) VALUES (:FName, :LName)";
-            //    cmd.Parameters.Add(new OracleParameter(":FName", TextBox1.Text));
-            //    cmd.Parameters.Add(new OracleParameter(":LName", TextBox2.Text));
-
-            //    OracleDataReader reader = comando.ExecuteReader();
-
-            //    while (reader.Read())
-            //    {
-            //        longitud = Int32.Parse(reader[1].ToString()) - 1;
-            //    }
-            //    conexion.Open();
-            //    cmd.ExecuteNonQuery();
-            //}
-            //catch (OracleException ex)
-            //{
-            //    Console.WriteLine($"GetSQLError - {ex.Message}");
-            //    longitud = -1;
-            //}
-            //finally
-            //{
-            //    conexion.Close();
-            //    conexion.Dispose();
-            //}
-
-            //return longitud;
-
-
-
-
-            return status;
+                comando.ExecuteNonQuery();
+                return true;
+            }
+            catch (OracleException ex)
+            {
+                Console.WriteLine($"GetSQLError - {ex.Message}");
+                return false;
+            }
+            finally
+            {
+                conexion?.Close();
+                conexion.Dispose();
+            }               
         }
 
+        public string ObtenerRespuesta(string messageID)
+        {
+            string respuesta = "";
+
+                var conexion = NuevaConexion();
+                try
+                {
+                    //hacerlo hasta 10 segundos
+                    OracleCommand comando = new OracleCommand("GET_VISA_RESPONSE", conexion)
+                    {
+                        CommandType = CommandType.StoredProcedure,
+                        BindByName = true
+                    };
+
+                    comando.Parameters.Add("p_messageID", messageID);
+
+                    OracleParameter op = new OracleParameter();
+                    op.OracleDbType = OracleDbType.RefCursor;
+                    op.ParameterName = "cursor01";
+                    op.Direction = ParameterDirection.Output;
+                    comando.Parameters.Add(op);
+
+                    using (var reader = comando.ExecuteReader())
+                    {
+                        while (reader != null && reader.Read())
+                        {
+                            respuesta = reader.GetValue(2).ToString();
+
+                        }
+                    }
+
+                    return respuesta;
+                }
+                catch (OracleException ex)
+                {
+                    Console.WriteLine($"GetSQLError - {ex.Message}");
+                    return "";
+                }
+                finally
+                {
+                    conexion?.Close();
+                    conexion.Dispose();
+                }
+            
+
+          
+        }
     }
 }

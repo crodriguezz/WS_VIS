@@ -23,7 +23,7 @@ namespace WSPagoServicio.MQ
         private Hashtable properties;
         private MQMessage message;
 
-       public bool PutMessages(string trama, string messageID)
+       public bool PutMessages(string trama, string messageID )
         {
             bool response = false;
             try
@@ -57,6 +57,8 @@ namespace WSPagoServicio.MQ
                         putID = putID.Substring(0,putID.Length - 3);
                     }
                     queue.Put(message);
+                OracleClass oracle = new OracleClass();
+                oracle.RegistrarEvento(datos_pago,da)
                     response = true;
                 //}
 
