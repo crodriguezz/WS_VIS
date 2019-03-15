@@ -118,16 +118,34 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="banco" xml:space="preserve">
-    <value>5000</value>
+    <value>1720</value>
     <comment>Valor para Banco en MQPRO</comment>
   </data>
   <data name="channelName" xml:space="preserve">
     <value>SYSTEM.ADMIN.SVRCONN</value>
     <comment>Name of the channel</comment>
   </data>
+  <data name="CodConsulta" xml:space="preserve">
+    <value>549</value>
+    <comment>CodigoConsulta</comment>
+  </data>
+  <data name="CodErrorAutorizacion" xml:space="preserve">
+    <value>401</value>
+  </data>
+  <data name="CodErrorConexion" xml:space="preserve">
+    <value>400</value>
+    <comment>Codigo de Error de Conexion</comment>
+  </data>
+  <data name="CodPagoExitoso" xml:space="preserve">
+    <value>200</value>
+    <comment>Codigo Confirmación Pago</comment>
+  </data>
   <data name="hostName" xml:space="preserve">
     <value>10.240.66.8</value>
     <comment>Name of the host on which Queue manager is running</comment>
+  </data>
+  <data name="InsertVisaHistory" xml:space="preserve">
+    <value>INSERT INTO MQPRO.MQ_VISA_HISTORY VALUES ( </value>
   </data>
   <data name="numberOfMsgs" xml:space="preserve">
     <value>1</value>
@@ -160,5 +178,13 @@
   <data name="queueName_Put" xml:space="preserve">
     <value>QL.VS.ENER.ONLINE</value>
     <comment>Queue name Put</comment>
+  </data>
+  <data name="UserName" xml:space="preserve">
+    <value>Ludwing</value>
+    <comment>Nombre de Usuario</comment>
+  </data>
+  <data name="UserPassword" xml:space="preserve">
+    <value>68ba07abf0d370630620ea43c68fabbd</value>
+    <comment>Password Usuario</comment>
   </data>
 </root>

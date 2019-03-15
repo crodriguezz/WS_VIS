@@ -61,7 +61,7 @@ namespace WSPagoServicio.Properties {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a 5000.
+        ///   Busca una cadena traducida similar a 1720.
         /// </summary>
         internal static string banco {
             get {
@@ -79,11 +79,56 @@ namespace WSPagoServicio.Properties {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a 549.
+        /// </summary>
+        internal static string CodConsulta {
+            get {
+                return ResourceManager.GetString("CodConsulta", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a 401.
+        /// </summary>
+        internal static string CodErrorAutorizacion {
+            get {
+                return ResourceManager.GetString("CodErrorAutorizacion", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a 400.
+        /// </summary>
+        internal static string CodErrorConexion {
+            get {
+                return ResourceManager.GetString("CodErrorConexion", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a 200.
+        /// </summary>
+        internal static string CodPagoExitoso {
+            get {
+                return ResourceManager.GetString("CodPagoExitoso", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a 10.240.66.8.
         /// </summary>
         internal static string hostName {
             get {
                 return ResourceManager.GetString("hostName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a INSERT INTO MQPRO.MQ_VISA_HISTORY VALUES ( .
+        /// </summary>
+        internal static string InsertVisaHistory {
+            get {
+                return ResourceManager.GetString("InsertVisaHistory", resourceCulture);
             }
         }
         
@@ -156,6 +201,24 @@ namespace WSPagoServicio.Properties {
         internal static string queueName_Put {
             get {
                 return ResourceManager.GetString("queueName_Put", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Ludwing.
+        /// </summary>
+        internal static string UserName {
+            get {
+                return ResourceManager.GetString("UserName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a 68ba07abf0d370630620ea43c68fabbd.
+        /// </summary>
+        internal static string UserPassword {
+            get {
+                return ResourceManager.GetString("UserPassword", resourceCulture);
             }
         }
     }

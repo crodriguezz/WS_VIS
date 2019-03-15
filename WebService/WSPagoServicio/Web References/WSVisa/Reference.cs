@@ -13,7 +13,7 @@
 // 
 #pragma warning disable 1591
 
-namespace WSPagoServicio.TestVisa {
+namespace WSPagoServicio.WSVisa {
     using System;
     using System.Web.Services;
     using System.Diagnostics;

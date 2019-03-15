@@ -133,5 +133,61 @@ namespace WSPagoServicio
             return longitud;
         }
 
+
+        public bool RegistrarEvento(DatosPago datos, string operacion, string messageID)
+        {
+            bool status = false;
+
+
+            //var conexion = NuevaConexion();
+            //DateTime date = System.DateTime.Now;
+            //string sql = Properties.Resources.InsertVisaHistory
+            //    + date.ToString()
+            //    + date.ToString("HH:mm:ss")
+            //    + datos.CODIGO_BANCO
+            //    + datos.TIP_OPER
+            //    + operacion 
+            //    + messageID
+            //    + ")";
+
+            //try
+            //{
+            //    OracleCommand comando = new OracleCommand(sql, conexion)
+            //    {
+            //        CommandType = System.Data.CommandType.Text
+            //    };
+
+            //    cmd.CommandText = "INSERT INTO Emp (FName, LName) VALUES (:FName, :LName)";
+            //    cmd.Parameters.Add(new OracleParameter(":FName", TextBox1.Text));
+            //    cmd.Parameters.Add(new OracleParameter(":LName", TextBox2.Text));
+
+            //    OracleDataReader reader = comando.ExecuteReader();
+
+            //    while (reader.Read())
+            //    {
+            //        longitud = Int32.Parse(reader[1].ToString()) - 1;
+            //    }
+            //    conexion.Open();
+            //    cmd.ExecuteNonQuery();
+            //}
+            //catch (OracleException ex)
+            //{
+            //    Console.WriteLine($"GetSQLError - {ex.Message}");
+            //    longitud = -1;
+            //}
+            //finally
+            //{
+            //    conexion.Close();
+            //    conexion.Dispose();
+            //}
+
+            //return longitud;
+
+
+
+
+            return status;
+        }
+
     }
 }

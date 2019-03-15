@@ -78,16 +78,16 @@
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
-    <Content Include="Web References\TestVisa\AuthorizationResponse.datasource">
+    <Content Include="Web References\WSVisa\AuthorizationResponse1.datasource">
       <DependentUpon>Reference.map</DependentUpon>
     </Content>
-    <None Include="Web References\TestVisa\paymentcommerce.disco" />
+    <None Include="Web References\WSVisa\paymentcommerce.disco" />
     <Content Include="Web.config" />
-    <None Include="Web References\TestVisa\paymentcommerce.wsdl" />
-    <Content Include="Web References\TestVisa\Reference.map">
+    <None Include="Web References\WSVisa\paymentcommerce.wsdl" />
+    <None Include="Web References\WSVisa\Reference.map">
       <Generator>MSDiscoCodeGenerator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
-    </Content>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Clases\AutenticarUsuario.cs" />
@@ -111,7 +111,7 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
       <DependentUpon>Settings.settings</DependentUpon>
     </Compile>
-    <Compile Include="Web References\TestVisa\Reference.cs">
+    <Compile Include="Web References\WSVisa\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.map</DependentUpon>
@@ -135,7 +135,7 @@
   <ItemGroup>
     <WebReferenceUrl Include="https://epaytestvisanet.com.gt/">
       <UrlBehavior>Dynamic</UrlBehavior>
-      <RelPath>Web References\TestVisa\</RelPath>
+      <RelPath>Web References\WSVisa\</RelPath>
       <UpdateFromURL>https://epaytestvisanet.com.gt/</UpdateFromURL>
       <ServiceLocationURL>
       </ServiceLocationURL>

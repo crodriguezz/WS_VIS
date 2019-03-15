@@ -52,60 +52,23 @@ namespace WSPagoServicio
 
         [WebMethod]
         [System.Web.Services.Protocols.SoapHeader("SoapHeader")]
-        public string PagoEnLinea(DatosPago datos)
+        public DatosRespuestaPago PagoEnLinea(DatosPago datos)
         {
-            if (SoapHeader == null)
-                return "Implementar metodo AutenticarUsuario de primero";
-
-            if (!SoapHeader.UsuarioCorrecto(SoapHeader))
-                return "Implementar metodo AutenticarUsuario de primero";
-
-            return "{ data:" + ConsultarVisa(datos) + "}";
-        }
-        internal string ConsultarVisa(DatosPago datos)
-        {
-            TestVisa.PaymentGWServices services = new TestVisa.PaymentGWServices();
-            TestVisa.AuthorizationRequest test = new TestVisa.AuthorizationRequest
+            DatosRespuestaPago respuesta_datos = new DatosRespuestaPago
             {
-                AuthorizationRequest1 = new TestVisa.Request()
+                TIP_OPER = Properties.Resources.CodErrorAutorizacion,
+                STATUS = "Implementar metodo AutenticarUsuario de primero"
             };
 
-            test.AuthorizationRequest1.posEntryMode = "012"; //012 - TARJETA  022- LECTOR DE BANDA
+            if (SoapHeader == null)
+                return respuesta_datos;
 
-            test.AuthorizationRequest1.pan = datos.TARJETA; //NO TARJETA
-            test.AuthorizationRequest1.expdate = datos.FECHA_EXPIRACION; // FECHA EXPIRACION YYMM
-            test.AuthorizationRequest1.amount = datos.MONTO; //MONTO DE CONSUMO
-            //OPCIONAL
-            //test.AuthorizationRequest1.track2Data = ""; //022 SI ES LECTURA DE BANDA
-            test.AuthorizationRequest1.cvv2 = datos.CVV2;   // CODIGO DE SEGURIDAD
+            if (!SoapHeader.UsuarioCorrecto(SoapHeader))
+                return respuesta_datos;
 
-            test.AuthorizationRequest1.paymentgwIP = "190.149.69.135";
-            //test.AuthorizationRequest1.shopperIP = "192.168.100.4";
-            //test.AuthorizationRequest1.merchantServerIP = "";
-
-            test.AuthorizationRequest1.merchantUser = "76B925EF7BEC821780B4B21479CE6482EA415896CF43006050B1DAD101669921"; //USUARIO
-            test.AuthorizationRequest1.merchantPasswd = "DD1791DB5B28DDE6FBC2B9951DFED4D97B82EFD622B411F1FC16B88B052232C7"; //CONTRASEÑA
-            test.AuthorizationRequest1.terminalId = "77788881"; //ID TERMINAL
-            test.AuthorizationRequest1.merchant = "00575123"; //AFILICION
-
-            test.AuthorizationRequest1.messageType = "0200"; // 0200 VENTA 0400 REVERSA  0202 ANULACION
-            test.AuthorizationRequest1.auditNumber = "090249"; //NO. TRANSACCION
-            //OPCIONAL
-            test.AuthorizationRequest1.additionalData = "";
-
-            TestVisa.AuthorizationResponse res = services.AuthorizationRequest(test);
-
-            if (res.response.responseCode.Equals("00"))
-            {
-                operaciones = new Operaciones();       
-                string resultado = operaciones.RealizarPago(datos);
-                return resultado;
-            }
-            else{
-                return res.response.responseCode;
-            }
-            
-
+            operaciones = new Operaciones();
+            respuesta_datos = operaciones.PagarVisa(datos);
+            return respuesta_datos;
         }
 
 
@@ -113,22 +76,21 @@ namespace WSPagoServicio
         [System.Web.Services.Protocols.SoapHeader("SoapHeader")]
         public DatosRespuestaConsulta ConsultaSaldo(DatosConsulta datos)
         {
-            DatosRespuestaConsulta respuesta_datos = new DatosRespuestaConsulta();
-            respuesta_datos.TIP_OPER = "400";
-            respuesta_datos.STATUS = "Implementar metodo AutenticarUsuario de primero";
+            DatosRespuestaConsulta respuesta_datos = new DatosRespuestaConsulta
+            {
+                TIP_OPER = Properties.Resources.CodErrorAutorizacion,
+                STATUS = "Implementar metodo AutenticarUsuario de primero"
+            };
+
             if (SoapHeader == null)
-                //return "Implementar metodo AutenticarUsuario de primero";
                 return respuesta_datos;
 
             if (!SoapHeader.UsuarioCorrecto(SoapHeader))
-                //return "Implementar metodo AutenticarUsuario de primero";
                 return respuesta_datos;
 
             operaciones = new Operaciones();
-            string trama = operaciones.RealizarConsulta(datos);
-            Metodos MQ_metodos = new Metodos();
-            string response = MQ_metodos.PutMessages(trama,datos);
-            respuesta_datos = operaciones.InterpretarTramaConsulta(response,datos.BANCO,"549");
+            respuesta_datos = operaciones.RealizarConsulta(datos);
+           
             return respuesta_datos;
         }
         

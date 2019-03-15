@@ -18,7 +18,7 @@ namespace WSPagoServicio
 
         public bool UsuarioCorrecto(string Usuario, string Password)
         {
-            if (Usuario.Equals("Ludwing") && Password.Equals("123ABC"))            
+            if (Usuario.Equals(Properties.Resources.UserName) && Password.Equals(Properties.Resources.UserPassword))            
                 return true;
             else
                 return false;

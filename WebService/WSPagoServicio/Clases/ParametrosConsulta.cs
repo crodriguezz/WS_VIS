@@ -172,9 +172,12 @@ namespace WSPagoServicio.Clases
 
     }
 
-    public class Respuesta
+    public class RespuestaVisa
     {
-        int Codigo { get; set; }
-        string Mensaje { get; set; }
+        public string AuditNumber { get; set; }
+        public string ReferenceNumber { get; set; }
+        public string AuthorizationNumber { get; set; }
+        public string ResponseCode { get; set; }
+        public string MessageType { get; set; }
     }
 }

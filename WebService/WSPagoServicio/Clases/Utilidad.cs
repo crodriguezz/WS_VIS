@@ -64,10 +64,12 @@ namespace WSPagoServicio.Clases
                         trama = trama.Substring(Int32.Parse(tipo[i].LONGITUD));
                         dato.ESTACION = valor;
                         break;
-                    case "DEUDA":
+                    case "DEUDA":                         
                         valor = trama.Substring(0, Int32.Parse(tipo[i].LONGITUD));
                         trama = trama.Substring(Int32.Parse(tipo[i].LONGITUD));
-                        dato.DEUDA = valor;
+                        string decimales = valor.Substring(valor.Length-2);
+                        string entero = Int32.Parse(valor.Substring(0, valor.Length - 2)).ToString();
+                        dato.DEUDA = entero +"." +decimales;
                         break;
                     case "NIS":
                         valor = trama.Substring(0, Int32.Parse(tipo[i].LONGITUD));

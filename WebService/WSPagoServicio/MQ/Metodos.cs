@@ -23,9 +23,9 @@ namespace WSPagoServicio.MQ
         private Hashtable properties;
         private MQMessage message;
 
-       public string PutMessages(string trama, DatosConsulta datos)
+       public bool PutMessages(string trama, string messageID)
         {
-            string response = string.Empty;
+            bool response = false;
             try
             {                
                 // mq properties
@@ -50,14 +50,14 @@ namespace WSPagoServicio.MQ
                 // putting messages continuously
                 //for (int i = 1; i <= Int32.Parse(Properties.Resources.numberOfMsgs); i++)
                 //{
-                    string mensajeId = datos.FECHA+datos.HORA+datos.NIS;
-                    message.MessageId = Encoding.ASCII.GetBytes(mensajeId);
+                    message.MessageId = Encoding.ASCII.GetBytes(messageID);
                     string putID = BitConverter.ToString(message.MessageId).Replace("-", string.Empty);
                     if (putID.Length>45)
                     {
                         putID = putID.Substring(0,putID.Length - 3);
                     }
                     queue.Put(message);
+                    response = true;
                 //}
 
                 // closing queue
@@ -71,10 +71,9 @@ namespace WSPagoServicio.MQ
                 Console.WriteLine("");
                 Console.WriteLine("MQException caught: {0} - {1}", mqe.ReasonCode, mqe.Message);
                 Console.WriteLine(mqe.StackTrace);
-                response = mqe.ReasonCode.ToString(); 
+                response = false; 
             }
 
-            response = GetMessages();
             return response;
         }
 
