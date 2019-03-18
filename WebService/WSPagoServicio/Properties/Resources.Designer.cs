@@ -205,7 +205,7 @@ namespace WSPagoServicio.Properties {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a Ludwing.
+        ///   Busca una cadena traducida similar a Visa.
         /// </summary>
         internal static string UserName {
             get {
@@ -219,6 +219,87 @@ namespace WSPagoServicio.Properties {
         internal static string UserPassword {
             get {
                 return ResourceManager.GetString("UserPassword", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a 76B925EF7BEC821780B4B21479CE6482EA415896CF43006050B1DAD101669921.
+        /// </summary>
+        internal static string UserVisa {
+            get {
+                return ResourceManager.GetString("UserVisa", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a DD1791DB5B28DDE6FBC2B9951DFED4D97B82EFD622B411F1FC16B88B052232C7.
+        /// </summary>
+        internal static string UserVisaPass {
+            get {
+                return ResourceManager.GetString("UserVisaPass", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a 090249.
+        /// </summary>
+        internal static string VisaAuditNumber {
+            get {
+                return ResourceManager.GetString("VisaAuditNumber", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a 00575123.
+        /// </summary>
+        internal static string VisaMerchant {
+            get {
+                return ResourceManager.GetString("VisaMerchant", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a 0200.
+        /// </summary>
+        internal static string VisaMessageTypePago {
+            get {
+                return ResourceManager.GetString("VisaMessageTypePago", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a 0400.
+        /// </summary>
+        internal static string VisaMessageTypeReversion {
+            get {
+                return ResourceManager.GetString("VisaMessageTypeReversion", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a 190.149.69.135.
+        /// </summary>
+        internal static string VisapaymentgwIP {
+            get {
+                return ResourceManager.GetString("VisapaymentgwIP", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a 012.
+        /// </summary>
+        internal static string VisaposEntryMode {
+            get {
+                return ResourceManager.GetString("VisaposEntryMode", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a 77788881.
+        /// </summary>
+        internal static string VisaTerminalID {
+            get {
+                return ResourceManager.GetString("VisaTerminalID", resourceCulture);
             }
         }
     }

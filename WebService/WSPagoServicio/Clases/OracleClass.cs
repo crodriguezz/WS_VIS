@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Diagnostics;
 using System.Linq;
 using System.Web;
 using WSPagoServicio.Clases;
@@ -139,17 +140,19 @@ namespace WSPagoServicio
             var conexion = NuevaConexion();
             try
             {
-                OracleCommand comando = new OracleCommand("NEW_VISA_HISTORY", conexion)
+                OracleCommand comando = new OracleCommand("MQPRO.NEW_VISA_HISTORY", conexion)
                 {
                     CommandType = CommandType.StoredProcedure,
                     BindByName = true
                 };
                 DateTime date = System.DateTime.Now;
 
+                string n_tarjeta = datos.TARJETA.Substring(datos.TARJETA.Length - 4);
+                string tarjeta = "XXXXXXXXXXXX" + n_tarjeta;
                 comando.Parameters.Add("p_fecha", OracleDbType.Date, date, ParameterDirection.Input);
                 comando.Parameters.Add("p_hora", OracleDbType.Varchar2, date.ToString("HH:mm:ss"), ParameterDirection.Input);
                 comando.Parameters.Add("p_nis", OracleDbType.Varchar2, datos.NIS_NIR, ParameterDirection.Input);
-                comando.Parameters.Add("p_tarjeta", OracleDbType.Varchar2, datos.TARJETA, ParameterDirection.Input);
+                comando.Parameters.Add("p_tarjeta", OracleDbType.Varchar2, tarjeta, ParameterDirection.Input);
                 comando.Parameters.Add("p_monto", OracleDbType.Varchar2, datos.MONTO, ParameterDirection.Input);
                 comando.Parameters.Add("p_f_exp", OracleDbType.Varchar2, datos.FECHA_EXPIRACION, ParameterDirection.Input);
                 comando.Parameters.Add("p_operacion", OracleDbType.Varchar2, operacion, ParameterDirection.Input);
@@ -176,50 +179,63 @@ namespace WSPagoServicio
 
         public string ObtenerRespuesta(string messageID)
         {
-            string respuesta = "";
+            string respuesta = string.Empty;
 
-                var conexion = NuevaConexion();
-                try
+            Stopwatch watch = new Stopwatch();
+            watch.Start();
+            for (int i = 0; i < 100000; i++)
+            {
+                if (watch.Elapsed.TotalSeconds <= 10 && respuesta.Equals(string.Empty))
                 {
-                    //hacerlo hasta 10 segundos
-                    OracleCommand comando = new OracleCommand("GET_VISA_RESPONSE", conexion)
+                    var conexion = NuevaConexion();
+                    try
                     {
-                        CommandType = CommandType.StoredProcedure,
-                        BindByName = true
-                    };
-
-                    comando.Parameters.Add("p_messageID", messageID);
-
-                    OracleParameter op = new OracleParameter();
-                    op.OracleDbType = OracleDbType.RefCursor;
-                    op.ParameterName = "cursor01";
-                    op.Direction = ParameterDirection.Output;
-                    comando.Parameters.Add(op);
-
-                    using (var reader = comando.ExecuteReader())
-                    {
-                        while (reader != null && reader.Read())
+                        //hacerlo hasta 10 segundos
+                        OracleCommand comando = new OracleCommand("MQPRO.GET_VISA_RESPONSE", conexion)
                         {
-                            respuesta = reader.GetValue(2).ToString();
+                            CommandType = CommandType.StoredProcedure,
+                            BindByName = true
+                        };
 
+                        comando.Parameters.Add("p_messageID", OracleDbType.Varchar2, messageID, ParameterDirection.Input);
+
+                        OracleParameter op = new OracleParameter
+                        {
+                            OracleDbType = OracleDbType.RefCursor,
+                            ParameterName = "cursor01",
+                            Direction = ParameterDirection.Output
+                        };
+                        comando.Parameters.Add(op);
+
+                        using (var reader = comando.ExecuteReader())
+                        {
+                            while (reader != null && reader.Read())
+                            {
+                                respuesta = reader.GetValue(0).ToString();
+                                break;
+
+                            }
                         }
                     }
-
-                    return respuesta;
+                    catch (OracleException ex)
+                    {
+                        Console.WriteLine($"GetSQLError - {ex.Message}");
+                        respuesta = string.Empty;
+                    }
+                    finally
+                    {
+                        conexion?.Close();
+                        conexion.Dispose();
+                    }
                 }
-                catch (OracleException ex)
+                else
                 {
-                    Console.WriteLine($"GetSQLError - {ex.Message}");
-                    return "";
+                    break;
                 }
-                finally
-                {
-                    conexion?.Close();
-                    conexion.Dispose();
-                }
-            
+            }
+            watch.Stop();
 
-          
+            return respuesta;          
         }
     }
 }

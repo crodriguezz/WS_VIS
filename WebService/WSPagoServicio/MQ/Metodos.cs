@@ -47,20 +47,12 @@ namespace WSPagoServicio.MQ
                 message.Encoding = 546;
                 message.WriteString(trama);
 
-                // putting messages continuously
-                //for (int i = 1; i <= Int32.Parse(Properties.Resources.numberOfMsgs); i++)
-                //{
-                    message.MessageId = Encoding.ASCII.GetBytes(messageID);
-                    string putID = BitConverter.ToString(message.MessageId).Replace("-", string.Empty);
-                    if (putID.Length>45)
-                    {
-                        putID = putID.Substring(0,putID.Length - 3);
-                    }
-                    queue.Put(message);
-                OracleClass oracle = new OracleClass();
-                oracle.RegistrarEvento(datos_pago,da)
-                    response = true;
-                //}
+                
+                message.MessageId = Encoding.ASCII.GetBytes(messageID);
+                    
+                queue.Put(message);
+                response = true;
+                
 
                 // closing queue
                 queue.Close();

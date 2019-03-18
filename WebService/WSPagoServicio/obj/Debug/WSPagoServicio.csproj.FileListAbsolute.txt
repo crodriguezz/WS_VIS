@@ -106,6 +106,7 @@ C:\Users\dc002503\Documents\Git\WebService_Visa\WebService\WSPagoServicio\bin\ro
 C:\Users\dc002503\Documents\Git\WebService_Visa\WebService\WSPagoServicio\bin\roslyn\vbc.rsp
 C:\Users\dc002503\Documents\Git\WebService_Visa\WebService\WSPagoServicio\bin\roslyn\VBCSCompiler.exe
 C:\Users\dc002503\Documents\Git\WebService_Visa\WebService\WSPagoServicio\bin\roslyn\VBCSCompiler.exe.config
+C:\Users\dc002503\Documents\Git\WebService_Visa\WebService\WSPagoServicio\bin\amqmdnet.dll
 C:\Users\dc002503\Documents\Git\WebService_Visa\WebService\WSPagoServicio\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
 C:\Users\dc002503\Documents\Git\WebService_Visa\WebService\WSPagoServicio\bin\Oracle.ManagedDataAccess.dll
 C:\Users\dc002503\Documents\Git\WebService_Visa\WebService\WSPagoServicio\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
@@ -115,5 +116,3 @@ C:\Users\dc002503\Documents\Git\WebService_Visa\WebService\WSPagoServicio\obj\De
 C:\Users\dc002503\Documents\Git\WebService_Visa\WebService\WSPagoServicio\obj\Debug\WSPagoServicio.csproj.CopyComplete
 C:\Users\dc002503\Documents\Git\WebService_Visa\WebService\WSPagoServicio\obj\Debug\WSPagoServicio.dll
 C:\Users\dc002503\Documents\Git\WebService_Visa\WebService\WSPagoServicio\obj\Debug\WSPagoServicio.pdb
-C:\Users\dc002503\Documents\Git\WebService_Visa\WebService\WSPagoServicio\obj\Debug\WSPagoServicio.csprojAssemblyReference.cache
-C:\Users\dc002503\Documents\Git\WebService_Visa\WebService\WSPagoServicio\bin\amqmdnet.dll
