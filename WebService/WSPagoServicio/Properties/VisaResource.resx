@@ -117,72 +117,40 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="banco" xml:space="preserve">
-    <value>1720</value>
-    <comment>Valor para Banco en MQPRO</comment>
+  <data name="UserVisa" xml:space="preserve">
+    <value>76B925EF7BEC821780B4B21479CE6482EA415896CF43006050B1DAD101669921</value>
+    <comment>Usuario para conectar con Visa</comment>
   </data>
-  <data name="channelName" xml:space="preserve">
-    <value>SYSTEM.ADMIN.SVRCONN</value>
-    <comment>Name of the channel</comment>
+  <data name="UserVisaPass" xml:space="preserve">
+    <value>DD1791DB5B28DDE6FBC2B9951DFED4D97B82EFD622B411F1FC16B88B052232C7</value>
+    <comment>Password del usuario Visa</comment>
   </data>
-  <data name="CodConsulta" xml:space="preserve">
-    <value>549</value>
-    <comment>CodigoConsulta</comment>
+  <data name="VisaAuditNumber" xml:space="preserve">
+    <value>090249</value>
+    <comment>Numero de audit establecido por Visa</comment>
   </data>
-  <data name="CodErrorAutorizacion" xml:space="preserve">
-    <value>401</value>
-    <comment>Codigo error de autenticacion</comment>
+  <data name="VisapaymentgwIP" xml:space="preserve">
+    <value>190.149.69.135</value>
+    <comment>IP de host de visa</comment>
   </data>
-  <data name="CodErrorConexion" xml:space="preserve">
-    <value>400</value>
-    <comment>Codigo de Error de Conexion</comment>
+  <data name="VisaMerchant" xml:space="preserve">
+    <value>00575123</value>
+    <comment>Tipo de merchant definido por Visa</comment>
   </data>
-  <data name="CodPagoExitoso" xml:space="preserve">
-    <value>200</value>
-    <comment>Codigo Confirmación Pago</comment>
+  <data name="VisaMessageTypePago" xml:space="preserve">
+    <value>0200</value>
+    <comment>Mensaje para seleccionar PAGO</comment>
   </data>
-  <data name="hostName" xml:space="preserve">
-    <value>10.240.66.8</value>
-    <comment>Name of the host on which Queue manager is running</comment>
+  <data name="VisaTerminalID" xml:space="preserve">
+    <value>77788881</value>
+    <comment>Numero de terminal de dispositivo visa</comment>
   </data>
-  <data name="numberOfMsgs" xml:space="preserve">
-    <value>1</value>
-    <comment>Number of messages</comment>
+  <data name="VisaposEntryMode" xml:space="preserve">
+    <value>012</value>
+    <comment>Tipo de operacion 012 indica que no es banda</comment>
   </data>
-  <data name="port" xml:space="preserve">
-    <value>1414</value>
-    <comment>Port number on which Queue manager is listening</comment>
-  </data>
-  <data name="query_banco_detalle" xml:space="preserve">
-    <value>SELECT * FROM MQPRO.MQ_FORMATOS_DETALLE WHERE CODIGO_MQ_BANCO = {0}  AND CODIGO_MQ_FORMATO = '{1}' ORDER BY SECUENCIA ASC</value>
-    <comment>Valor que determina como esta compuesta la trama</comment>
-  </data>
-  <data name="query_banco_ini" xml:space="preserve">
-    <value>SELECT * FROM MQPRO.MQ_FORMATOS_INI WHERE CODIGO_MQ_BANCO = {0}</value>
-    <comment>Valor que determina el inicio de banco</comment>
-  </data>
-  <data name="queueManagerName" xml:space="preserve">
-    <value>QM_ENERGUATE_RECEP</value>
-    <comment>Name of the Queue manager to connect to</comment>
-  </data>
-  <data name="queueName_Get" xml:space="preserve">
-    <value>QL.ENER.VS.ONLINE</value>
-    <comment>Queue name Get</comment>
-  </data>
-  <data name="queueName_Put" xml:space="preserve">
-    <value>QL.VS.ENER.ONLINE</value>
-    <comment>Queue name Put</comment>
-  </data>
-  <data name="UserName" xml:space="preserve">
-    <value>DEV_USER_VISA</value>
-    <comment>Nombre de Usuario</comment>
-  </data>
-  <data name="UserPassword" xml:space="preserve">
-    <value>68ba07abf0d370630620ea43c68fabbd</value>
-    <comment>Password Usuario</comment>
-  </data>
-  <data name="CodAutorizacionExitosa" xml:space="preserve">
-    <value>200</value>
-    <comment>Codigo de confirmacion de autenticacion</comment>
+  <data name="VisaMessageTypeReversion" xml:space="preserve">
+    <value>0400</value>
+    <comment>Mensaje para seleccionar Reversion</comment>
   </data>
 </root>

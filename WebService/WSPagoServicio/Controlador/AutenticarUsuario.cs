@@ -8,14 +8,21 @@ namespace WSPagoServicio
     /// <summary>
     /// PERMITE VALIDAR LA CONECTIVIDAD DEL USUARIO QUE DESEA CONECTARSE.
     /// DEVUELVE UN TOKEN DE CONECTIVIDAD
-    /// </summary>
+    /// Creado por: Ludwing Ottoniel Cano fuentes - 05/03/2019
+    ///</summary>
     public class SecureTokenWebService : System.Web.Services.Protocols.SoapHeader
     {
         public string Usuario { get; set; }
         public string Password { get; set; }
         public string TokenAutenticacion { get; set; }
-        
 
+        /// <summary>
+        /// Permite identificar si el ususario es correcto
+        /// Creado por: Ludwing Ottoniel Cano fuentes - 05/03/2019
+        ///</summary>
+        /// <param name="Usuario">Nombre usuario</param>
+        /// <param name="Password">Contraseaña encriptada</param>
+        /// <returns></returns>
         public bool UsuarioCorrecto(string Usuario, string Password)
         {
             if (Usuario.Equals(Properties.Resources.UserName) && Password.Equals(Properties.Resources.UserPassword))            
@@ -23,8 +30,13 @@ namespace WSPagoServicio
             else
                 return false;
         }
-
-        public bool UsuarioCorrecto(SecureTokenWebService SoapHeader)
+        /// <summary>
+        /// Valida que todavia tenga un Token Valido de lo contrario devuelve error
+        /// Creado por: Ludwing Ottoniel Cano fuentes - 05/03/2019
+        ///</summary>
+        /// <param name="SoapHeader"></param>
+        /// <returns></returns>
+        public bool ValidarToken(SecureTokenWebService SoapHeader)
         {
             if (SoapHeader == null)            
                 return false;

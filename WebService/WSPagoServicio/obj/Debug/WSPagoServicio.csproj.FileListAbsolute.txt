@@ -110,6 +110,7 @@ C:\Users\dc002503\Documents\Git\WebService_Visa\WebService\WSPagoServicio\bin\am
 C:\Users\dc002503\Documents\Git\WebService_Visa\WebService\WSPagoServicio\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
 C:\Users\dc002503\Documents\Git\WebService_Visa\WebService\WSPagoServicio\bin\Oracle.ManagedDataAccess.dll
 C:\Users\dc002503\Documents\Git\WebService_Visa\WebService\WSPagoServicio\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+C:\Users\dc002503\Documents\Git\WebService_Visa\WebService\WSPagoServicio\obj\Debug\WSPagoServicio.Properties.VisaResource.resources
 C:\Users\dc002503\Documents\Git\WebService_Visa\WebService\WSPagoServicio\obj\Debug\WSPagoServicio.Properties.Resources.resources
 C:\Users\dc002503\Documents\Git\WebService_Visa\WebService\WSPagoServicio\obj\Debug\WSPagoServicio.csproj.GenerateResource.cache
 C:\Users\dc002503\Documents\Git\WebService_Visa\WebService\WSPagoServicio\obj\Debug\WSPagoServicio.csproj.CoreCompileInputs.cache

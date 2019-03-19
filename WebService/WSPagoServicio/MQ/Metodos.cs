@@ -11,9 +11,6 @@ namespace WSPagoServicio.MQ
 {
     public class Metodos
     {
-        
-        //private const String messageString = "000000000000000000000000000000000000000000000000000000000000000000000054810008350000000000000000000000020190311152525";
-        
 
         /// <summary>
         /// Variables
@@ -22,8 +19,14 @@ namespace WSPagoServicio.MQ
         private MQQueue queue;
         private Hashtable properties;
         private MQMessage message;
-
-       public bool PutMessages(string trama, string messageID )
+        /// <summary>
+        /// Permite enviar un mensaje directo a la Cola del MQ
+        /// Creado por: Ludwing Ottoniel Cano fuentes - 05/03/2019
+        ///</summary>
+        /// <param name="trama"></param>
+        /// <param name="messageID"></param>
+        /// <returns></returns>
+        public bool PutMessages(string trama, string messageID )
         {
             bool response = false;
             try
@@ -72,8 +75,9 @@ namespace WSPagoServicio.MQ
         }
 
         /// <summary>
-        /// Get messages
-        /// </summary>
+        /// Permite obtener un mensaje directo de la Cola
+        /// Creado por: Ludwing Ottoniel Cano fuentes - 05/03/2019
+        ///</summary>
         public string GetMessages()
         {
             string response = string.Empty;

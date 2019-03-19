@@ -8,10 +8,10 @@ using WSPagoServicio.Clases;
 using WSPagoServicio.MQ;
 
 namespace WSPagoServicio
-{   
-    
-    /// <summary>
-    /// Descripción breve de PagoServicio
+{
+
+    /// <summary> --- Creado por: Ludwing Ottoniel Cano fuentes - 05/03/2019
+    /// Descrión del Web Service Pago Servicio
     /// </summary>
     [WebService(Namespace = "http://tempuri.org/")]
     [WebServiceBinding(ConformsTo = WsiProfiles.BasicProfile1_1)]
@@ -22,18 +22,26 @@ namespace WSPagoServicio
     {
         internal Operaciones operaciones;
         public SecureTokenWebService SoapHeader;
+
         [WebMethod]
         [System.Web.Services.Protocols.SoapHeader("SoapHeader")]
-        public string AutenticarUsuario()
-        {           
-            if (SoapHeader == null)
-                return "Ingrese Usuario y Contraseña";
-            if (string.IsNullOrEmpty(SoapHeader.Usuario) || string.IsNullOrEmpty(SoapHeader.Password))
-                return "Ingrese Usuario y Contraseña";
+        public RespuestaAutenticacion AutenticarUsuario()
+        {
+            RespuestaAutenticacion autenticacion = new RespuestaAutenticacion
+            {
+                TIP_OPER = Properties.Resources.CodErrorAutorizacion,
+                STATUS = "Ingrese Usuario y Contraseña"
+            };
 
-            // Are the credentials valid?
+            if (SoapHeader == null)
+                return autenticacion;
+            if (string.IsNullOrEmpty(SoapHeader.Usuario) || string.IsNullOrEmpty(SoapHeader.Password))
+                return autenticacion;
+
+
+            autenticacion.STATUS = "Credenciales Invalidas";
             if (!SoapHeader.UsuarioCorrecto(SoapHeader.Usuario, SoapHeader.Password))
-                return "Credenciales Invalidas";
+                return autenticacion;
 
             // Create and store the TokenAutenticacion before returning it.
             string token = Guid.NewGuid().ToString();
@@ -42,35 +50,16 @@ namespace WSPagoServicio
               SoapHeader.Usuario,
               null,
               System.Web.Caching.Cache.NoAbsoluteExpiration,
-              TimeSpan.FromMinutes(60),
+              TimeSpan.FromMinutes(15),
               System.Web.Caching.CacheItemPriority.NotRemovable, 
               null);
 
-            return token;
-        }        
-        
+            autenticacion.STATUS = string.Empty;
+            autenticacion.TOKEN = token;
+            autenticacion.TIP_OPER = Properties.Resources.CodAutorizacionExitosa;
 
-        [WebMethod]
-        [System.Web.Services.Protocols.SoapHeader("SoapHeader")]
-        public DatosRespuestaPago PagoEnLinea(DatosPago datos)
-        {
-            DatosRespuestaPago respuesta_datos = new DatosRespuestaPago
-            {
-                TIP_OPER = Properties.Resources.CodErrorAutorizacion,
-                STATUS = "Implementar metodo AutenticarUsuario de primero"
-            };
-
-            if (SoapHeader == null)
-                return respuesta_datos;
-
-            if (!SoapHeader.UsuarioCorrecto(SoapHeader))
-                return respuesta_datos;
-
-            operaciones = new Operaciones();
-            respuesta_datos = operaciones.PagarVisa(datos);
-            return respuesta_datos;
+            return autenticacion;
         }
-
 
         [WebMethod]
         [System.Web.Services.Protocols.SoapHeader("SoapHeader")]
@@ -85,15 +74,35 @@ namespace WSPagoServicio
             if (SoapHeader == null)
                 return respuesta_datos;
 
-            if (!SoapHeader.UsuarioCorrecto(SoapHeader))
+            if (!SoapHeader.ValidarToken(SoapHeader))
                 return respuesta_datos;
 
             operaciones = new Operaciones();
             respuesta_datos = operaciones.RealizarConsulta(datos);
-           
+
             return respuesta_datos;
         }
-        
+
+        [WebMethod]
+        [System.Web.Services.Protocols.SoapHeader("SoapHeader")]
+        public DatosRespuestaPago PagoEnLinea(DatosPago datos)
+        {
+            DatosRespuestaPago respuesta_datos = new DatosRespuestaPago
+            {
+                TIP_OPER = Properties.Resources.CodErrorAutorizacion,
+                STATUS = "Implementar metodo AutenticarUsuario de primero"
+            };
+
+            if (SoapHeader == null)
+                return respuesta_datos;
+
+            if (!SoapHeader.ValidarToken(SoapHeader))
+                return respuesta_datos;
+
+            operaciones = new Operaciones();
+            respuesta_datos = operaciones.PagarVisa(datos);
+            return respuesta_datos;
+        }        
 
     }
 }

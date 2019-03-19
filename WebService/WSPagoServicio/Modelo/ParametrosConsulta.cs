@@ -5,18 +5,26 @@ using System.Web;
 
 namespace WSPagoServicio.Clases
 {
-    public class ParametrosConsulta
+    /// <summary>
+    /// Parametros para obtener la estructura de tramas.
+    /// Creado por: Ludwing Ottoniel Cano fuentes - 05/03/2019
+    ///</summary>
+    public class ParametrosMQConsulta
     {
         public string OPERACION { get; set; }
         public string LONGITUD { get; set; }
 
-        public ParametrosConsulta()
+        public ParametrosMQConsulta()
         {
             OPERACION = "";
             LONGITUD = "";
         }
     }
 
+    /// <summary>
+    /// Parametros de Consulta Web Service
+    /// Creado por: Ludwing Ottoniel Cano fuentes - 05/03/2019
+    ///</summary>
     public class DatosConsulta
     {
 
@@ -29,7 +37,6 @@ namespace WSPagoServicio.Clases
         public string HORA { get; set; }
         //WS
         public string BANCO { get; set; }
-        public string EMPRESA { get; set; }
 
         public DatosConsulta()
         {
@@ -40,9 +47,12 @@ namespace WSPagoServicio.Clases
             FECHA = "";
             HORA = "";
             BANCO = "";
-            EMPRESA = "";
         }
     }
+    /// <summary>
+    /// Parametros de Respuesta para Metodo de Consulta
+    /// Creado por: Ludwing Ottoniel Cano fuentes - 05/03/2019
+    ///</summary>
     public class DatosRespuestaConsulta
     {
         //MQ
@@ -56,30 +66,36 @@ namespace WSPagoServicio.Clases
         public string STATUS { get; set; }
     }
 
+    /// <summary>
+    ///´Parametros para el metodo de Pago
+    /// Creado por: Ludwing Ottoniel Cano fuentes - 05/03/2019
+    ///</summary>
     public class DatosPago
     {
         //MQ
-        public string FILLER { get; set; }
         public string TIP_OPER { get; set; }
         public string NIS_NIR { get; set; }
         public string EMPRESA { get; set; }
-        public string TIPO_PAGO { get; set; }
-        public string CODIGO_BANCO { get; set; }
-        public string AGENCIA { get; set; }
-        public string CAJERO { get; set; }
         public string FECHA { get; set; }
-        public string HORA { get; set; }
-        public string EFECTIVO { get; set; }
-        public string CHEQUES_BI { get; set; }
-        public string NO_CHEQUE { get; set; }
-        public string TOTAL_OPER { get; set; }
-
         //WS
         public string MQ_BANCO { get; set; }
         public string TARJETA { get; set; }
         public string CVV2 { get; set; }
         public string FECHA_EXPIRACION { get; set; }
         public string MONTO { get; set; }
+        //MQ
+        public string FILLER { get; set; }
+        public string TIPO_PAGO { get; set; }
+        public string CODIGO_BANCO { get; set; }
+        public string AGENCIA { get; set; }
+        public string CAJERO { get; set; }
+        public string HORA { get; set; }
+        public string EFECTIVO { get; set; }
+        public string CHEQUES_BI { get; set; }
+        public string NO_CHEQUE { get; set; }
+        public string TOTAL_OPER { get; set; }
+
+        
 
         public DatosPago()
         {
@@ -104,6 +120,10 @@ namespace WSPagoServicio.Clases
             MONTO = "";
         }
     }
+    /// <summary>
+    /// Parametros de Respuesta para el Metodo de Pago
+    /// Creado por: Ludwing Ottoniel Cano fuentes - 05/03/2019
+    ///</summary>
     public class DatosRespuestaPago
     {
 
@@ -113,6 +133,10 @@ namespace WSPagoServicio.Clases
 
     }
 
+    /// <summary>
+    /// Parametros para Reversión de Pago
+    /// Creado por: Ludwing Ottoniel Cano fuentes - 05/03/2019
+    ///</summary>
     public class DatosReversion
     {
 
@@ -164,14 +188,11 @@ namespace WSPagoServicio.Clases
             MONTO = "";
         }
     }
-    public class DatosRespuestaReversion
-    {
 
-        public string TIP_OPER { get; set; }
-        public string STATUS { get; set; }
-
-    }
-
+    /// <summary>
+    /// Parametros de Respuesta de Visa
+    /// Creado por: Ludwing Ottoniel Cano fuentes - 05/03/2019
+    ///</summary>      
     public class RespuestaVisa
     {
         public string AuditNumber { get; set; }
@@ -179,5 +200,12 @@ namespace WSPagoServicio.Clases
         public string AuthorizationNumber { get; set; }
         public string ResponseCode { get; set; }
         public string MessageType { get; set; }
+    }
+
+    public class RespuestaAutenticacion
+    {
+        public string TIP_OPER { get; set; }
+        public string TOKEN{ get; set; }
+        public string STATUS { get; set; }
     }
 }

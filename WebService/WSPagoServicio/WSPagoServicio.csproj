@@ -90,17 +90,23 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Clases\AutenticarUsuario.cs" />
-    <Compile Include="Clases\ParametrosConsulta.cs" />
-    <Compile Include="Clases\Operaciones.cs" />
-    <Compile Include="Clases\OracleClass.cs" />
-    <Compile Include="Clases\Utilidad.cs" />
+    <Compile Include="Controlador\AutenticarUsuario.cs" />
+    <Compile Include="DBConnection\OracleMethod.cs" />
+    <Compile Include="Modelo\ParametrosConsulta.cs" />
+    <Compile Include="Controlador\Operaciones.cs" />
+    <Compile Include="DBConnection\OracleClass.cs" />
+    <Compile Include="Controlador\Utilidad.cs" />
     <Compile Include="MQ\Metodos.cs" />
     <Compile Include="PagoServicio.asmx.cs">
       <DependentUpon>PagoServicio.asmx</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\VisaResource.Designer.cs">
+      <DependentUpon>VisaResource.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -146,6 +152,11 @@
     </WebReferenceUrl>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Properties\VisaResource.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>VisaResource.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>

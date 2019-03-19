@@ -14,7 +14,7 @@ namespace WSPagoServicio.Properties {
     
     /// <summary>
     ///   Clase de recurso fuertemente tipado, para buscar cadenas traducidas, etc.
-    /// </summary>
+    /// Creado por: Ludwing Ottoniel Cano fuentes - 05/03/2019
     // StronglyTypedResourceBuilder generó automáticamente esta clase
     // a través de una herramienta como ResGen o Visual Studio.
     // Para agregar o quitar un miembro, edite el archivo .ResX y, a continuación, vuelva a ejecutar ResGen
@@ -34,7 +34,7 @@ namespace WSPagoServicio.Properties {
         
         /// <summary>
         ///   Devuelve la instancia de ResourceManager almacenada en caché utilizada por esta clase.
-        /// </summary>
+        /// Creado por: Ludwing Ottoniel Cano fuentes - 05/03/2019
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
         internal static global::System.Resources.ResourceManager ResourceManager {
             get {
@@ -49,7 +49,7 @@ namespace WSPagoServicio.Properties {
         /// <summary>
         ///   Reemplaza la propiedad CurrentUICulture del subproceso actual para todas las
         ///   búsquedas de recursos mediante esta clase de recurso fuertemente tipado.
-        /// </summary>
+        /// Creado por: Ludwing Ottoniel Cano fuentes - 05/03/2019
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
         internal static global::System.Globalization.CultureInfo Culture {
             get {
@@ -62,7 +62,7 @@ namespace WSPagoServicio.Properties {
         
         /// <summary>
         ///   Busca una cadena traducida similar a 1720.
-        /// </summary>
+        /// Creado por: Ludwing Ottoniel Cano fuentes - 05/03/2019
         internal static string banco {
             get {
                 return ResourceManager.GetString("banco", resourceCulture);
@@ -71,7 +71,7 @@ namespace WSPagoServicio.Properties {
         
         /// <summary>
         ///   Busca una cadena traducida similar a SYSTEM.ADMIN.SVRCONN.
-        /// </summary>
+        /// Creado por: Ludwing Ottoniel Cano fuentes - 05/03/2019
         internal static string channelName {
             get {
                 return ResourceManager.GetString("channelName", resourceCulture);
@@ -79,8 +79,17 @@ namespace WSPagoServicio.Properties {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a 200.
+        /// Creado por: Ludwing Ottoniel Cano fuentes - 05/03/2019
+        internal static string CodAutorizacionExitosa {
+            get {
+                return ResourceManager.GetString("CodAutorizacionExitosa", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a 549.
-        /// </summary>
+        /// Creado por: Ludwing Ottoniel Cano fuentes - 05/03/2019
         internal static string CodConsulta {
             get {
                 return ResourceManager.GetString("CodConsulta", resourceCulture);
@@ -89,7 +98,7 @@ namespace WSPagoServicio.Properties {
         
         /// <summary>
         ///   Busca una cadena traducida similar a 401.
-        /// </summary>
+        /// Creado por: Ludwing Ottoniel Cano fuentes - 05/03/2019
         internal static string CodErrorAutorizacion {
             get {
                 return ResourceManager.GetString("CodErrorAutorizacion", resourceCulture);
@@ -98,7 +107,7 @@ namespace WSPagoServicio.Properties {
         
         /// <summary>
         ///   Busca una cadena traducida similar a 400.
-        /// </summary>
+        /// Creado por: Ludwing Ottoniel Cano fuentes - 05/03/2019
         internal static string CodErrorConexion {
             get {
                 return ResourceManager.GetString("CodErrorConexion", resourceCulture);
@@ -107,7 +116,7 @@ namespace WSPagoServicio.Properties {
         
         /// <summary>
         ///   Busca una cadena traducida similar a 200.
-        /// </summary>
+        /// Creado por: Ludwing Ottoniel Cano fuentes - 05/03/2019
         internal static string CodPagoExitoso {
             get {
                 return ResourceManager.GetString("CodPagoExitoso", resourceCulture);
@@ -116,7 +125,7 @@ namespace WSPagoServicio.Properties {
         
         /// <summary>
         ///   Busca una cadena traducida similar a 10.240.66.8.
-        /// </summary>
+        /// Creado por: Ludwing Ottoniel Cano fuentes - 05/03/2019
         internal static string hostName {
             get {
                 return ResourceManager.GetString("hostName", resourceCulture);
@@ -124,17 +133,8 @@ namespace WSPagoServicio.Properties {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a INSERT INTO MQPRO.MQ_VISA_HISTORY VALUES ( .
-        /// </summary>
-        internal static string InsertVisaHistory {
-            get {
-                return ResourceManager.GetString("InsertVisaHistory", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Busca una cadena traducida similar a 1.
-        /// </summary>
+        /// Creado por: Ludwing Ottoniel Cano fuentes - 05/03/2019
         internal static string numberOfMsgs {
             get {
                 return ResourceManager.GetString("numberOfMsgs", resourceCulture);
@@ -143,7 +143,7 @@ namespace WSPagoServicio.Properties {
         
         /// <summary>
         ///   Busca una cadena traducida similar a 1414.
-        /// </summary>
+        /// Creado por: Ludwing Ottoniel Cano fuentes - 05/03/2019
         internal static string port {
             get {
                 return ResourceManager.GetString("port", resourceCulture);
@@ -151,8 +151,8 @@ namespace WSPagoServicio.Properties {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a SELECT * FROM MQPRO.MQ_FORMATOS_DETALLE WHERE CODIGO_MQ_BANCO = .
-        /// </summary>
+        ///   Busca una cadena traducida similar a SELECT * FROM MQPRO.MQ_FORMATOS_DETALLE WHERE CODIGO_MQ_BANCO = {0}  AND CODIGO_MQ_FORMATO = &apos;{1}&apos; ORDER BY SECUENCIA ASC.
+        /// Creado por: Ludwing Ottoniel Cano fuentes - 05/03/2019
         internal static string query_banco_detalle {
             get {
                 return ResourceManager.GetString("query_banco_detalle", resourceCulture);
@@ -160,17 +160,8 @@ namespace WSPagoServicio.Properties {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a SELECT * FROM MQ_FORMATOS.
-        /// </summary>
-        internal static string query_banco_formato {
-            get {
-                return ResourceManager.GetString("query_banco_formato", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Busca una cadena traducida similar a select * from MQPRO.MQ_FORMATOS_INI WHERE CODIGO_MQ_BANCO =.
-        /// </summary>
+        ///   Busca una cadena traducida similar a SELECT * FROM MQPRO.MQ_FORMATOS_INI WHERE CODIGO_MQ_BANCO = {0}.
+        /// Creado por: Ludwing Ottoniel Cano fuentes - 05/03/2019
         internal static string query_banco_ini {
             get {
                 return ResourceManager.GetString("query_banco_ini", resourceCulture);
@@ -179,7 +170,7 @@ namespace WSPagoServicio.Properties {
         
         /// <summary>
         ///   Busca una cadena traducida similar a QM_ENERGUATE_RECEP.
-        /// </summary>
+        /// Creado por: Ludwing Ottoniel Cano fuentes - 05/03/2019
         internal static string queueManagerName {
             get {
                 return ResourceManager.GetString("queueManagerName", resourceCulture);
@@ -188,7 +179,7 @@ namespace WSPagoServicio.Properties {
         
         /// <summary>
         ///   Busca una cadena traducida similar a QL.ENER.VS.ONLINE.
-        /// </summary>
+        /// Creado por: Ludwing Ottoniel Cano fuentes - 05/03/2019
         internal static string queueName_Get {
             get {
                 return ResourceManager.GetString("queueName_Get", resourceCulture);
@@ -197,7 +188,7 @@ namespace WSPagoServicio.Properties {
         
         /// <summary>
         ///   Busca una cadena traducida similar a QL.VS.ENER.ONLINE.
-        /// </summary>
+        /// Creado por: Ludwing Ottoniel Cano fuentes - 05/03/2019
         internal static string queueName_Put {
             get {
                 return ResourceManager.GetString("queueName_Put", resourceCulture);
@@ -205,8 +196,8 @@ namespace WSPagoServicio.Properties {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a Visa.
-        /// </summary>
+        ///   Busca una cadena traducida similar a DEV_USER_VISA.
+        /// Creado por: Ludwing Ottoniel Cano fuentes - 05/03/2019
         internal static string UserName {
             get {
                 return ResourceManager.GetString("UserName", resourceCulture);
@@ -215,91 +206,10 @@ namespace WSPagoServicio.Properties {
         
         /// <summary>
         ///   Busca una cadena traducida similar a 68ba07abf0d370630620ea43c68fabbd.
-        /// </summary>
+        /// Creado por: Ludwing Ottoniel Cano fuentes - 05/03/2019
         internal static string UserPassword {
             get {
                 return ResourceManager.GetString("UserPassword", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Busca una cadena traducida similar a 76B925EF7BEC821780B4B21479CE6482EA415896CF43006050B1DAD101669921.
-        /// </summary>
-        internal static string UserVisa {
-            get {
-                return ResourceManager.GetString("UserVisa", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Busca una cadena traducida similar a DD1791DB5B28DDE6FBC2B9951DFED4D97B82EFD622B411F1FC16B88B052232C7.
-        /// </summary>
-        internal static string UserVisaPass {
-            get {
-                return ResourceManager.GetString("UserVisaPass", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Busca una cadena traducida similar a 090249.
-        /// </summary>
-        internal static string VisaAuditNumber {
-            get {
-                return ResourceManager.GetString("VisaAuditNumber", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Busca una cadena traducida similar a 00575123.
-        /// </summary>
-        internal static string VisaMerchant {
-            get {
-                return ResourceManager.GetString("VisaMerchant", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Busca una cadena traducida similar a 0200.
-        /// </summary>
-        internal static string VisaMessageTypePago {
-            get {
-                return ResourceManager.GetString("VisaMessageTypePago", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Busca una cadena traducida similar a 0400.
-        /// </summary>
-        internal static string VisaMessageTypeReversion {
-            get {
-                return ResourceManager.GetString("VisaMessageTypeReversion", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Busca una cadena traducida similar a 190.149.69.135.
-        /// </summary>
-        internal static string VisapaymentgwIP {
-            get {
-                return ResourceManager.GetString("VisapaymentgwIP", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Busca una cadena traducida similar a 012.
-        /// </summary>
-        internal static string VisaposEntryMode {
-            get {
-                return ResourceManager.GetString("VisaposEntryMode", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Busca una cadena traducida similar a 77788881.
-        /// </summary>
-        internal static string VisaTerminalID {
-            get {
-                return ResourceManager.GetString("VisaTerminalID", resourceCulture);
             }
         }
     }

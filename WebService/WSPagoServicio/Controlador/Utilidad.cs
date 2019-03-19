@@ -7,7 +7,14 @@ namespace WSPagoServicio.Clases
 {
     public class Utilidad
     {
-        public string TipoDatoConsulta(ParametrosConsulta tipo, DatosConsulta consulta)
+        /// <summary>
+        /// Devuelve el dato que corresponda segun el tipo de parametro que se necesite para la trama
+        /// Creado por: Ludwing Ottoniel Cano fuentes - 05/03/2019
+        ///</summary>
+        /// <param name="tipo"></param>
+        /// <param name="consulta"></param>
+        /// <returns></returns>
+        public string ValidarDatosParaConsulta(ParametrosMQConsulta tipo, DatosConsulta consulta)
         {
             string valor = "";
 
@@ -37,8 +44,14 @@ namespace WSPagoServicio.Clases
             
             return valor;
         }
-
-        public DatosRespuestaConsulta TipoRespuestaConsulta(List<ParametrosConsulta> tipo, string trama)
+        /// <summary>
+        /// Devuelve el dato que corresponda segun los tipos de parametros para la interpretacion de trama
+        /// Creado por: Ludwing Ottoniel Cano fuentes - 05/03/2019
+        ///</summary>
+        /// <param name="tipo"></param>
+        /// <param name="trama"></param>
+        /// <returns></returns>
+        public DatosRespuestaConsulta InterpretarRespuestaConsulta(List<ParametrosMQConsulta> tipo, string trama)
         {
             DatosRespuestaConsulta dato = new DatosRespuestaConsulta();
             string valor = "";
@@ -104,8 +117,14 @@ namespace WSPagoServicio.Clases
             
             return dato;
         }
-
-        public string TipoDatoPago(ParametrosConsulta tipo, DatosPago pago)
+        /// <summary>
+        /// Devuelve el valor del dato que corresponde segun el parametro enviado para pago
+        /// Creado por: Ludwing Ottoniel Cano fuentes - 05/03/2019
+        ///</summary>
+        /// <param name="tipo"></param>
+        /// <param name="pago"></param>
+        /// <returns></returns>
+        public string ValidarDatosParaPago(ParametrosMQConsulta tipo, DatosPago pago)
         {
             string valor = "";
             try
@@ -118,11 +137,11 @@ namespace WSPagoServicio.Clases
                     case "TIP_OPER":
                         return ValidarTamaño(Int32.Parse(tipo.LONGITUD), pago.TIP_OPER);
                     case "NIR/NIS":
-                        return ValidarTamaño(Int32.Parse(tipo.LONGITUD), pago.NIS_NIR);
+                        return ValidarTamaño(Int32.Parse(tipo.LONGITUD), pago.NIS_NIR); 
                     case "EMPRESA":
-                        return ValidarTamaño(Int32.Parse(tipo.LONGITUD), pago.EMPRESA);
+                        return ValidarTamaño(Int32.Parse(tipo.LONGITUD), pago.EMPRESA); // DEORSA = 1 , DEOCSA =2  
                     case "TIPO_PAGO":
-                        return ValidarTamaño(Int32.Parse(tipo.LONGITUD), pago.TIPO_PAGO);
+                        return ValidarTamaño(Int32.Parse(tipo.LONGITUD), "2"); //Deuda = 2 Factura = 1
                     case "CODIGO_BANCO":
                         return ValidarTamaño(Int32.Parse(tipo.LONGITUD), pago.CODIGO_BANCO);
                     case "AGENCIA":
@@ -134,13 +153,13 @@ namespace WSPagoServicio.Clases
                     case "HORA":
                         return DateTime.Now.ToString("HHmmss");
                     case "EFECTIVO":
-                        return ValidarTamaño(Int32.Parse(tipo.LONGITUD), pago.EFECTIVO);
+                        return ValidarTamañoMonto(Int32.Parse(tipo.LONGITUD), pago.MONTO);
                     case "CHEQUES_BI":
-                        return ValidarTamaño(Int32.Parse(tipo.LONGITUD), pago.CHEQUES_BI);
+                        return ValidarTamañoMonto(Int32.Parse(tipo.LONGITUD), pago.CHEQUES_BI);
                     case "NO_CHEQUE":
-                        return ValidarTamaño(Int32.Parse(tipo.LONGITUD), pago.NO_CHEQUE);
+                        return ValidarTamañoMonto(Int32.Parse(tipo.LONGITUD), pago.NO_CHEQUE);
                     case "TOTAL_OPER":
-                        return ValidarTamaño(Int32.Parse(tipo.LONGITUD), pago.TOTAL_OPER);
+                        return ValidarTamañoMonto(Int32.Parse(tipo.LONGITUD), pago.MONTO);
 
                 }
             }
@@ -151,7 +170,13 @@ namespace WSPagoServicio.Clases
 
             return valor;
         }
-
+        /// <summary>
+        /// Valida el tamaño del dato y si falta lo completa
+        /// Creado por: Ludwing Ottoniel Cano fuentes - 05/03/2019
+        ///</summary>
+        /// <param name="tamaño"></param>
+        /// <param name="valor"></param>
+        /// <returns></returns>
         public string ValidarTamaño(int tamaño, string valor)
         {
 
@@ -168,6 +193,31 @@ namespace WSPagoServicio.Clases
                 }
                 valor += data;
                 return valor;
+            }
+        }
+        /// <summary>
+        /// Valida el tamaño del dato y si falta lo completa
+        /// Creado por: Ludwing Ottoniel Cano fuentes - 05/03/2019
+        ///</summary>
+        /// <param name="tamaño"></param>
+        /// <param name="valor"></param>
+        /// <returns></returns>
+        public string ValidarTamañoMonto(int tamaño, string valor)
+        {
+
+            if (valor.Length == tamaño)
+            {
+                return valor;
+            }
+            else
+            {
+                string data = "";
+                for (int i = valor.Length; i < tamaño; i++)
+                {
+                    data += "0";
+                }
+                data += valor;
+                return data;
             }
         }
 
