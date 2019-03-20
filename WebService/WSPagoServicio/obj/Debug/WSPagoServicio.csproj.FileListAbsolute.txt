@@ -117,3 +117,4 @@ C:\Users\dc002503\Documents\Git\WebService_Visa\WebService\WSPagoServicio\obj\De
 C:\Users\dc002503\Documents\Git\WebService_Visa\WebService\WSPagoServicio\obj\Debug\WSPagoServicio.csproj.CopyComplete
 C:\Users\dc002503\Documents\Git\WebService_Visa\WebService\WSPagoServicio\obj\Debug\WSPagoServicio.dll
 C:\Users\dc002503\Documents\Git\WebService_Visa\WebService\WSPagoServicio\obj\Debug\WSPagoServicio.pdb
+C:\Users\dc002503\Documents\Git\WebService_Visa\WebService\WSPagoServicio\obj\Debug\WSPagoServicio.csprojAssemblyReference.cache

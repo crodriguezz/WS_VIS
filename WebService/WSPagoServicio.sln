@@ -5,6 +5,8 @@ VisualStudioVersion = 15.0.28307.168
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WSPagoServicio", "WSPagoServicio\WSPagoServicio.csproj", "{FF4D78C1-F7F4-4E61-AE20-816034AF8460}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VisaTest", "VisaTest\VisaTest.csproj", "{76EA861E-852D-4A0F-8DE6-3D4C64AE702E}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{FF4D78C1-F7F4-4E61-AE20-816034AF8460}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FF4D78C1-F7F4-4E61-AE20-816034AF8460}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FF4D78C1-F7F4-4E61-AE20-816034AF8460}.Release|Any CPU.Build.0 = Release|Any CPU
+		{76EA861E-852D-4A0F-8DE6-3D4C64AE702E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{76EA861E-852D-4A0F-8DE6-3D4C64AE702E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{76EA861E-852D-4A0F-8DE6-3D4C64AE702E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{76EA861E-852D-4A0F-8DE6-3D4C64AE702E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

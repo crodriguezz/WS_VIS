@@ -49,8 +49,8 @@ namespace WSPagoServicio
               token,
               SoapHeader.Usuario,
               null,
-              System.Web.Caching.Cache.NoAbsoluteExpiration,
-              TimeSpan.FromMinutes(15),
+              DateTime.Now.AddMinutes(5),//tiempo de expiracion de Item en Cache
+              TimeSpan.Zero, 
               System.Web.Caching.CacheItemPriority.NotRemovable, 
               null);
 
