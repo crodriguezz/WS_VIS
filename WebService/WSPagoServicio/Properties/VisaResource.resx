@@ -137,7 +137,7 @@
     <value>00575123</value>
     <comment>Tipo de merchant definido por Visa</comment>
   </data>
-  <data name="VisaMessageTypePago" xml:space="preserve">
+  <data name="VisaMessageTypeVenta" xml:space="preserve">
     <value>0200</value>
     <comment>Mensaje para seleccionar PAGO</comment>
   </data>
@@ -149,8 +149,12 @@
     <value>012</value>
     <comment>Tipo de operacion 012 indica que no es banda</comment>
   </data>
-  <data name="VisaMessageTypeReversion" xml:space="preserve">
+  <data name="VisaMessageTypeAnulacion" xml:space="preserve">
     <value>0400</value>
     <comment>Mensaje para seleccionar Reversion</comment>
+  </data>
+  <data name="VisaMessageTypeReversa" xml:space="preserve">
+    <value>0202</value>
+    <comment>Mensaje para seleccionar ANULACION</comment>
   </data>
 </root>

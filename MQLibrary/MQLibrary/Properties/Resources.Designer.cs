@@ -8,13 +8,13 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace WSPagoServicio.Properties {
+namespace MQLibrary.Properties {
     using System;
     
     
     /// <summary>
     ///   Clase de recurso fuertemente tipado, para buscar cadenas traducidas, etc.
-    /// </summary>
+    /// Creado por: Ludwing Ottoniel Cano fuentes - 05/03/2019
     // StronglyTypedResourceBuilder generó automáticamente esta clase
     // a través de una herramienta como ResGen o Visual Studio.
     // Para agregar o quitar un miembro, edite el archivo .ResX y, a continuación, vuelva a ejecutar ResGen
@@ -34,12 +34,12 @@ namespace WSPagoServicio.Properties {
         
         /// <summary>
         ///   Devuelve la instancia de ResourceManager almacenada en caché utilizada por esta clase.
-        /// </summary>
+        /// Creado por: Ludwing Ottoniel Cano fuentes - 05/03/2019
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
         internal static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("WSPagoServicio.Properties.Resources", typeof(Resources).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("MQLibrary.Properties.Resources", typeof(Resources).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;
@@ -49,7 +49,7 @@ namespace WSPagoServicio.Properties {
         /// <summary>
         ///   Reemplaza la propiedad CurrentUICulture del subproceso actual para todas las
         ///   búsquedas de recursos mediante esta clase de recurso fuertemente tipado.
-        /// </summary>
+        /// Creado por: Ludwing Ottoniel Cano fuentes - 05/03/2019
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
         internal static global::System.Globalization.CultureInfo Culture {
             get {
@@ -61,8 +61,26 @@ namespace WSPagoServicio.Properties {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a 1720.
+        /// Creado por: Ludwing Ottoniel Cano fuentes - 05/03/2019
+        internal static string banco {
+            get {
+                return ResourceManager.GetString("banco", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a SYSTEM.ADMIN.SVRCONN.
+        /// Creado por: Ludwing Ottoniel Cano fuentes - 05/03/2019
+        internal static string channelName {
+            get {
+                return ResourceManager.GetString("channelName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a 200.
-        /// </summary>
+        /// Creado por: Ludwing Ottoniel Cano fuentes - 05/03/2019
         internal static string CodAutorizacionExitosa {
             get {
                 return ResourceManager.GetString("CodAutorizacionExitosa", resourceCulture);
@@ -71,7 +89,7 @@ namespace WSPagoServicio.Properties {
         
         /// <summary>
         ///   Busca una cadena traducida similar a 549.
-        /// </summary>
+        /// Creado por: Ludwing Ottoniel Cano fuentes - 05/03/2019
         internal static string CodConsulta {
             get {
                 return ResourceManager.GetString("CodConsulta", resourceCulture);
@@ -80,7 +98,7 @@ namespace WSPagoServicio.Properties {
         
         /// <summary>
         ///   Busca una cadena traducida similar a 401.
-        /// </summary>
+        /// Creado por: Ludwing Ottoniel Cano fuentes - 05/03/2019
         internal static string CodErrorAutorizacion {
             get {
                 return ResourceManager.GetString("CodErrorAutorizacion", resourceCulture);
@@ -89,7 +107,7 @@ namespace WSPagoServicio.Properties {
         
         /// <summary>
         ///   Busca una cadena traducida similar a 400.
-        /// </summary>
+        /// Creado por: Ludwing Ottoniel Cano fuentes - 05/03/2019
         internal static string CodErrorConexion {
             get {
                 return ResourceManager.GetString("CodErrorConexion", resourceCulture);
@@ -98,7 +116,7 @@ namespace WSPagoServicio.Properties {
         
         /// <summary>
         ///   Busca una cadena traducida similar a 200.
-        /// </summary>
+        /// Creado por: Ludwing Ottoniel Cano fuentes - 05/03/2019
         internal static string CodPagoExitoso {
             get {
                 return ResourceManager.GetString("CodPagoExitoso", resourceCulture);
@@ -106,8 +124,35 @@ namespace WSPagoServicio.Properties {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a 10.240.66.8.
+        /// Creado por: Ludwing Ottoniel Cano fuentes - 05/03/2019
+        internal static string hostName {
+            get {
+                return ResourceManager.GetString("hostName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a 1.
+        /// Creado por: Ludwing Ottoniel Cano fuentes - 05/03/2019
+        internal static string numberOfMsgs {
+            get {
+                return ResourceManager.GetString("numberOfMsgs", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a 1414.
+        /// Creado por: Ludwing Ottoniel Cano fuentes - 05/03/2019
+        internal static string port {
+            get {
+                return ResourceManager.GetString("port", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a SELECT * FROM MQPRO.MQ_FORMATOS_DETALLE WHERE CODIGO_MQ_BANCO = {0}  AND CODIGO_MQ_FORMATO = &apos;{1}&apos; ORDER BY SECUENCIA ASC.
-        /// </summary>
+        /// Creado por: Ludwing Ottoniel Cano fuentes - 05/03/2019
         internal static string query_banco_detalle {
             get {
                 return ResourceManager.GetString("query_banco_detalle", resourceCulture);
@@ -116,7 +161,7 @@ namespace WSPagoServicio.Properties {
         
         /// <summary>
         ///   Busca una cadena traducida similar a SELECT * FROM MQPRO.MQ_FORMATOS_INI WHERE CODIGO_MQ_BANCO = {0}.
-        /// </summary>
+        /// Creado por: Ludwing Ottoniel Cano fuentes - 05/03/2019
         internal static string query_banco_ini {
             get {
                 return ResourceManager.GetString("query_banco_ini", resourceCulture);
@@ -124,8 +169,35 @@ namespace WSPagoServicio.Properties {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a QM_ENERGUATE_RECEP.
+        /// Creado por: Ludwing Ottoniel Cano fuentes - 05/03/2019
+        internal static string queueManagerName {
+            get {
+                return ResourceManager.GetString("queueManagerName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a QL.ENER.VS.ONLINE.
+        /// Creado por: Ludwing Ottoniel Cano fuentes - 05/03/2019
+        internal static string queueName_Get {
+            get {
+                return ResourceManager.GetString("queueName_Get", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a QL.VS.ENER.ONLINE.
+        /// Creado por: Ludwing Ottoniel Cano fuentes - 05/03/2019
+        internal static string queueName_Put {
+            get {
+                return ResourceManager.GetString("queueName_Put", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a DEV_USER_VISA.
-        /// </summary>
+        /// Creado por: Ludwing Ottoniel Cano fuentes - 05/03/2019
         internal static string UserName {
             get {
                 return ResourceManager.GetString("UserName", resourceCulture);
@@ -134,7 +206,7 @@ namespace WSPagoServicio.Properties {
         
         /// <summary>
         ///   Busca una cadena traducida similar a 68ba07abf0d370630620ea43c68fabbd.
-        /// </summary>
+        /// Creado por: Ludwing Ottoniel Cano fuentes - 05/03/2019
         internal static string UserPassword {
             get {
                 return ResourceManager.GetString("UserPassword", resourceCulture);

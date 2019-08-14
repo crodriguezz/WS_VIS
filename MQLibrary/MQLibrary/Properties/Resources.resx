@@ -117,9 +117,13 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="CodAutorizacionExitosa" xml:space="preserve">
-    <value>200</value>
-    <comment>Codigo de confirmacion de autenticacion</comment>
+  <data name="banco" xml:space="preserve">
+    <value>1720</value>
+    <comment>Valor para Banco en MQPRO</comment>
+  </data>
+  <data name="channelName" xml:space="preserve">
+    <value>SYSTEM.ADMIN.SVRCONN</value>
+    <comment>Name of the channel</comment>
   </data>
   <data name="CodConsulta" xml:space="preserve">
     <value>549</value>
@@ -137,6 +141,18 @@
     <value>200</value>
     <comment>Codigo Confirmación Pago</comment>
   </data>
+  <data name="hostName" xml:space="preserve">
+    <value>10.240.66.8</value>
+    <comment>Name of the host on which Queue manager is running</comment>
+  </data>
+  <data name="numberOfMsgs" xml:space="preserve">
+    <value>1</value>
+    <comment>Number of messages</comment>
+  </data>
+  <data name="port" xml:space="preserve">
+    <value>1414</value>
+    <comment>Port number on which Queue manager is listening</comment>
+  </data>
   <data name="query_banco_detalle" xml:space="preserve">
     <value>SELECT * FROM MQPRO.MQ_FORMATOS_DETALLE WHERE CODIGO_MQ_BANCO = {0}  AND CODIGO_MQ_FORMATO = '{1}' ORDER BY SECUENCIA ASC</value>
     <comment>Valor que determina como esta compuesta la trama</comment>
@@ -145,6 +161,18 @@
     <value>SELECT * FROM MQPRO.MQ_FORMATOS_INI WHERE CODIGO_MQ_BANCO = {0}</value>
     <comment>Valor que determina el inicio de banco</comment>
   </data>
+  <data name="queueManagerName" xml:space="preserve">
+    <value>QM_ENERGUATE_RECEP</value>
+    <comment>Name of the Queue manager to connect to</comment>
+  </data>
+  <data name="queueName_Get" xml:space="preserve">
+    <value>QL.ENER.VS.ONLINE</value>
+    <comment>Queue name Get</comment>
+  </data>
+  <data name="queueName_Put" xml:space="preserve">
+    <value>QL.VS.ENER.ONLINE</value>
+    <comment>Queue name Put</comment>
+  </data>
   <data name="UserName" xml:space="preserve">
     <value>DEV_USER_VISA</value>
     <comment>Nombre de Usuario</comment>
@@ -152,5 +180,9 @@
   <data name="UserPassword" xml:space="preserve">
     <value>68ba07abf0d370630620ea43c68fabbd</value>
     <comment>Password Usuario</comment>
+  </data>
+  <data name="CodAutorizacionExitosa" xml:space="preserve">
+    <value>200</value>
+    <comment>Codigo de confirmacion de autenticacion</comment>
   </data>
 </root>

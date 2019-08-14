@@ -14,7 +14,7 @@ namespace WSPagoServicio.Properties {
     
     /// <summary>
     ///   Clase de recurso fuertemente tipado, para buscar cadenas traducidas, etc.
-    /// Creado por: Ludwing Ottoniel Cano fuentes - 05/03/2019
+    /// </summary>
     // StronglyTypedResourceBuilder generó automáticamente esta clase
     // a través de una herramienta como ResGen o Visual Studio.
     // Para agregar o quitar un miembro, edite el archivo .ResX y, a continuación, vuelva a ejecutar ResGen
@@ -34,7 +34,7 @@ namespace WSPagoServicio.Properties {
         
         /// <summary>
         ///   Devuelve la instancia de ResourceManager almacenada en caché utilizada por esta clase.
-        /// Creado por: Ludwing Ottoniel Cano fuentes - 05/03/2019
+        /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
         internal static global::System.Resources.ResourceManager ResourceManager {
             get {
@@ -49,7 +49,7 @@ namespace WSPagoServicio.Properties {
         /// <summary>
         ///   Reemplaza la propiedad CurrentUICulture del subproceso actual para todas las
         ///   búsquedas de recursos mediante esta clase de recurso fuertemente tipado.
-        /// Creado por: Ludwing Ottoniel Cano fuentes - 05/03/2019
+        /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
         internal static global::System.Globalization.CultureInfo Culture {
             get {
@@ -62,7 +62,7 @@ namespace WSPagoServicio.Properties {
         
         /// <summary>
         ///   Busca una cadena traducida similar a 76B925EF7BEC821780B4B21479CE6482EA415896CF43006050B1DAD101669921.
-        /// Creado por: Ludwing Ottoniel Cano fuentes - 05/03/2019
+        /// </summary>
         internal static string UserVisa {
             get {
                 return ResourceManager.GetString("UserVisa", resourceCulture);
@@ -71,7 +71,7 @@ namespace WSPagoServicio.Properties {
         
         /// <summary>
         ///   Busca una cadena traducida similar a DD1791DB5B28DDE6FBC2B9951DFED4D97B82EFD622B411F1FC16B88B052232C7.
-        /// Creado por: Ludwing Ottoniel Cano fuentes - 05/03/2019
+        /// </summary>
         internal static string UserVisaPass {
             get {
                 return ResourceManager.GetString("UserVisaPass", resourceCulture);
@@ -80,7 +80,7 @@ namespace WSPagoServicio.Properties {
         
         /// <summary>
         ///   Busca una cadena traducida similar a 090249.
-        /// Creado por: Ludwing Ottoniel Cano fuentes - 05/03/2019
+        /// </summary>
         internal static string VisaAuditNumber {
             get {
                 return ResourceManager.GetString("VisaAuditNumber", resourceCulture);
@@ -89,7 +89,7 @@ namespace WSPagoServicio.Properties {
         
         /// <summary>
         ///   Busca una cadena traducida similar a 00575123.
-        /// Creado por: Ludwing Ottoniel Cano fuentes - 05/03/2019
+        /// </summary>
         internal static string VisaMerchant {
             get {
                 return ResourceManager.GetString("VisaMerchant", resourceCulture);
@@ -97,26 +97,35 @@ namespace WSPagoServicio.Properties {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a 0200.
-        /// Creado por: Ludwing Ottoniel Cano fuentes - 05/03/2019
-        internal static string VisaMessageTypePago {
+        ///   Busca una cadena traducida similar a 0400.
+        /// </summary>
+        internal static string VisaMessageTypeAnulacion {
             get {
-                return ResourceManager.GetString("VisaMessageTypePago", resourceCulture);
+                return ResourceManager.GetString("VisaMessageTypeAnulacion", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a 0400.
-        /// Creado por: Ludwing Ottoniel Cano fuentes - 05/03/2019
-        internal static string VisaMessageTypeReversion {
+        ///   Busca una cadena traducida similar a 0202.
+        /// </summary>
+        internal static string VisaMessageTypeReversa {
             get {
-                return ResourceManager.GetString("VisaMessageTypeReversion", resourceCulture);
+                return ResourceManager.GetString("VisaMessageTypeReversa", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a 0200.
+        /// </summary>
+        internal static string VisaMessageTypeVenta {
+            get {
+                return ResourceManager.GetString("VisaMessageTypeVenta", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Busca una cadena traducida similar a 190.149.69.135.
-        /// Creado por: Ludwing Ottoniel Cano fuentes - 05/03/2019
+        /// </summary>
         internal static string VisapaymentgwIP {
             get {
                 return ResourceManager.GetString("VisapaymentgwIP", resourceCulture);
@@ -125,7 +134,7 @@ namespace WSPagoServicio.Properties {
         
         /// <summary>
         ///   Busca una cadena traducida similar a 012.
-        /// Creado por: Ludwing Ottoniel Cano fuentes - 05/03/2019
+        /// </summary>
         internal static string VisaposEntryMode {
             get {
                 return ResourceManager.GetString("VisaposEntryMode", resourceCulture);
@@ -134,7 +143,7 @@ namespace WSPagoServicio.Properties {
         
         /// <summary>
         ///   Busca una cadena traducida similar a 77788881.
-        /// Creado por: Ludwing Ottoniel Cano fuentes - 05/03/2019
+        /// </summary>
         internal static string VisaTerminalID {
             get {
                 return ResourceManager.GetString("VisaTerminalID", resourceCulture);

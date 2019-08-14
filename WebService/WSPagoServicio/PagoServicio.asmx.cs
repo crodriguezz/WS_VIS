@@ -5,7 +5,7 @@ using System.Web;
 using System.Web.Script.Services;
 using System.Web.Services;
 using WSPagoServicio.Clases;
-using WSPagoServicio.MQ;
+using MQLibrary;
 
 namespace WSPagoServicio
 {
